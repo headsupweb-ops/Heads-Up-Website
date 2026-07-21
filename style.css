@@ -1,0 +1,4938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <!-- =========================================================
+         HEADS UP AFTERSCHOOL PROGRAM
+         Main single-page website shell 
+
+         FILES USED:
+         - index.html
+         - style.css
+         - script.js
+
+         IMPORTANT IMAGE FILES:
+         - logo.png
+         - images/hero-community.jpg
+         - images/gallery-01.jpg through gallery-08.jpg
+         - images/team-leadership.jpg
+         - images/team-research.jpg
+         - images/team-volunteers.jpg
+
+         The CSS includes gradient fallbacks, so the layout remains
+         attractive while you replace the placeholder images.
+    ========================================================== -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Heads Up is a welcoming, community-centered afterschool program supporting learning, belonging, mentorship, and family engagement."
+    >
+
+    <meta name="theme-color" content="#004aad">
+
+    <title>Heads Up | Community Afterschool Program</title>
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         ACCESSIBILITY: SKIP NAVIGATION
+    ========================================================== -->
+
+    <a class="skip-link" href="#mainContent">
+        Skip to main content
+    </a>
+
+
+    <noscript>
+
+        <div class="noscript-notice" role="status">
+
+            This website works best with JavaScript enabled. Core page
+            information remains available, but the mobile menu, update tabs,
+            event filters, forms, and dialog windows need JavaScript for full
+            interaction.
+
+        </div>
+
+    </noscript>
+
+
+    <!-- =========================================================
+         SLOW AMBIENT BACKGROUND
+
+         These elements create the subtle moving color/neon effect.
+         They do not block clicks or interfere with website content.
+    ========================================================== -->
+
+    <div class="ambient-background" aria-hidden="true">
+
+        <span class="ambient-orb ambient-orb--gold"></span>
+
+        <span class="ambient-orb ambient-orb--blue"></span>
+
+        <span class="ambient-orb ambient-orb--teal"></span>
+
+        <span class="ambient-orb ambient-orb--coral"></span>
+
+        <span class="ambient-ribbon ambient-ribbon--one"></span>
+
+        <span class="ambient-ribbon ambient-ribbon--two"></span>
+
+        <span class="ambient-sparkles"></span>
+
+        <span class="ambient-grid"></span>
+
+    </div>
+
+
+    <!-- =========================================================
+         SVG ICON LIBRARY
+
+         This keeps the icons dependable without requiring a
+         separate external icon service.
+    ========================================================== -->
+
+    <svg
+        class="svg-sprite"
+        aria-hidden="true"
+        focusable="false"
+    >
+
+        <symbol id="icon-phone" viewBox="0 0 24 24">
+
+            <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2
+                19.79 19.79 0 0 1-8.63-3.07
+                19.5 19.5 0 0 1-6-6
+                A19.79 19.79 0 0 1 2.12 4.18
+                2 2 0 0 1 4.11 2h3
+                a2 2 0 0 1 2 1.72
+                c.12.9.33 1.78.62 2.63
+                a2 2 0 0 1-.45 2.11L8 9.74
+                a16 16 0 0 0 6 6l1.28-1.28
+                a2 2 0 0 1 2.11-.45
+                c.85.29 1.73.5 2.63.62
+                A2 2 0 0 1 22 16.92Z"
+            ></path>
+
+        </symbol>
+
+
+        <symbol id="icon-mail" viewBox="0 0 24 24">
+
+            <path
+                d="M4 4h16a2 2 0 0 1 2 2v12
+                a2 2 0 0 1-2 2H4
+                a2 2 0 0 1-2-2V6
+                a2 2 0 0 1 2-2Z"
+            ></path>
+
+            <path d="m22 6-10 7L2 6"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-pin" viewBox="0 0 24 24">
+
+            <path
+                d="M20 10c0 5-8 12-8 12
+                S4 15 4 10a8 8 0 1 1 16 0Z"
+            ></path>
+
+            <circle cx="12" cy="10" r="2.5"></circle>
+
+        </symbol>
+
+
+        <symbol id="icon-calendar" viewBox="0 0 24 24">
+
+            <rect
+                x="3"
+                y="5"
+                width="18"
+                height="16"
+                rx="2"
+            ></rect>
+
+            <path d="M16 3v4M8 3v4M3 10h18"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-clock" viewBox="0 0 24 24">
+
+            <circle cx="12" cy="12" r="9"></circle>
+
+            <path d="M12 7v5l3 2"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-arrow" viewBox="0 0 24 24">
+
+            <path d="M5 12h14M13 6l6 6-6 6"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-chevron" viewBox="0 0 24 24">
+
+            <path d="m8 10 4 4 4-4"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-heart" viewBox="0 0 24 24">
+
+            <path
+                d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0
+                L12 5.6l-1-1
+                a5.5 5.5 0 0 0-7.8 7.8l1 1
+                L12 21l7.8-7.6 1-1
+                a5.5 5.5 0 0 0 0-7.8Z"
+            ></path>
+
+        </symbol>
+
+
+        <symbol id="icon-people" viewBox="0 0 24 24">
+
+            <path
+                d="M16 21v-2a4 4 0 0 0-4-4H6
+                a4 4 0 0 0-4 4v2"
+            ></path>
+
+            <circle cx="9" cy="7" r="4"></circle>
+
+            <path
+                d="M22 21v-2a4 4 0 0 0-3-3.87
+                M16 3.13a4 4 0 0 1 0 7.75"
+            ></path>
+
+        </symbol>
+
+
+        <symbol id="icon-book" viewBox="0 0 24 24">
+
+            <path
+                d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5
+                A2.5 2.5 0 0 0 4 5.5Z"
+            ></path>
+
+            <path
+                d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5H6.5
+                A2.5 2.5 0 0 0 4 19.5Z"
+            ></path>
+
+        </symbol>
+
+
+        <symbol id="icon-microscope" viewBox="0 0 24 24">
+
+            <path
+                d="m6 18 3-3
+                M9 15l-2-2 5-5 2 2-5 5Z
+                M13 7l2-2 4 4-2 2
+                M15 18h5
+                M4 22h16
+                M12 18a5 5 0 0 0 5-5"
+            ></path>
+
+        </symbol>
+
+
+        <symbol id="icon-palette" viewBox="0 0 24 24">
+
+            <path
+                d="M12 2a10 10 0 0 0 0 20h1.5
+                a2 2 0 0 0 0-4H12
+                a1.5 1.5 0 0 1 0-3h2
+                a8 8 0 0 0 0-16Z"
+            ></path>
+
+            <circle cx="7.5" cy="10" r="1"></circle>
+
+            <circle cx="10" cy="6.5" r="1"></circle>
+
+            <circle cx="15" cy="6.5" r="1"></circle>
+
+            <circle cx="17" cy="11" r="1"></circle>
+
+        </symbol>
+
+
+        <symbol id="icon-tree" viewBox="0 0 24 24">
+
+            <path
+                d="M12 22v-7
+                M8 22h8
+                M12 2 5 12h4l-3 5h12l-3-5h4Z"
+            ></path>
+
+        </symbol>
+
+
+        <symbol id="icon-shield" viewBox="0 0 24 24">
+
+            <path
+                d="M12 22s8-4 8-10V5l-8-3-8 3v7
+                c0 6 8 10 8 10Z"
+            ></path>
+
+            <path d="m9 12 2 2 4-4"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-document" viewBox="0 0 24 24">
+
+            <path
+                d="M14 2H6a2 2 0 0 0-2 2v16
+                a2 2 0 0 0 2 2h12
+                a2 2 0 0 0 2-2V8Z"
+            ></path>
+
+            <path d="M14 2v6h6M8 13h8M8 17h8M8 9h2"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-user-plus" viewBox="0 0 24 24">
+
+            <path
+                d="M15 21v-2a4 4 0 0 0-4-4H5
+                a4 4 0 0 0-4 4v2"
+            ></path>
+
+            <circle cx="8" cy="7" r="4"></circle>
+
+            <path d="M19 8v6M16 11h6"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-message" viewBox="0 0 24 24">
+
+            <path
+                d="M21 15a4 4 0 0 1-4 4H8l-5 3V7
+                a4 4 0 0 1 4-4h10
+                a4 4 0 0 1 4 4Z"
+            ></path>
+
+        </symbol>
+
+
+        <symbol id="icon-accessibility" viewBox="0 0 24 24">
+
+            <circle cx="12" cy="4" r="2"></circle>
+
+            <path
+                d="M4 8h16
+                M12 6v6
+                M8 22l4-10 4 10
+                M7 14l-3 4
+                M17 14l3 4"
+            ></path>
+
+        </symbol>
+
+
+        <symbol id="icon-close" viewBox="0 0 24 24">
+
+            <path d="M18 6 6 18M6 6l12 12"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-download" viewBox="0 0 24 24">
+
+            <path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-pause" viewBox="0 0 24 24">
+
+            <path d="M8 5v14M16 5v14"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-play" viewBox="0 0 24 24">
+
+            <path d="m8 5 11 7-11 7Z"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-left" viewBox="0 0 24 24">
+
+            <path d="m15 18-6-6 6-6"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-right" viewBox="0 0 24 24">
+
+            <path d="m9 18 6-6-6-6"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-home" viewBox="0 0 24 24">
+
+            <path d="m3 11 9-8 9 8"></path>
+
+            <path d="M5 10v10h14V10M9 20v-6h6v6"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-check" viewBox="0 0 24 24">
+
+            <path d="m5 12 4 4L19 6"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-filter" viewBox="0 0 24 24">
+
+            <path d="M4 6h16M7 12h10M10 18h4"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-lock" viewBox="0 0 24 24">
+
+            <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+
+            <path d="M8 11V8a4 4 0 0 1 8 0v3"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-unlock" viewBox="0 0 24 24">
+
+            <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+
+            <path d="M8 11V8a4 4 0 0 1 7.5-2"></path>
+
+        </symbol>
+
+
+        <symbol id="icon-globe" viewBox="0 0 24 24">
+
+            <circle cx="12" cy="12" r="10"></circle>
+
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"></path>
+
+        </symbol>
+
+    </svg>
+
+
+    <!-- =========================================================
+         STICKY HEADER SHELL
+
+         The emergency bar and main navigation stay together.
+    ========================================================== -->
+
+    <div class="site-header-shell" id="siteHeaderShell">
+
+        <!-- =====================================================
+             EMERGENCY AND CONTACT BAR
+        ====================================================== -->
+
+        <div
+            class="emergency-bar"
+            role="region"
+            aria-label="Emergency and contact information"
+        >
+
+            <div class="emergency-bar__inner">
+
+                <div class="emergency-bar__primary">
+
+                    <span
+                        class="emergency-pulse"
+                        aria-hidden="true"
+                    ></span>
+
+                    <strong>
+                        Emergency contact:
+                    </strong>
+
+                    <a
+                        href="tel:+10000000000"
+                        class="emergency-phone"
+                    >
+
+                        <svg aria-hidden="true">
+
+                            <use href="#icon-phone"></use>
+
+                        </svg>
+
+                        (000) 000-0000
+
+                    </a>
+
+                </div>
+
+
+                <div class="emergency-bar__secondary">
+
+                    <a href="mailto:placeholder@email.com">
+
+                        <svg aria-hidden="true">
+
+                            <use href="#icon-mail"></use>
+
+                        </svg>
+
+                        placeholder@email.com
+
+                    </a>
+
+
+                    <a
+                        href="#contact"
+                        class="emergency-contact-link"
+                    >
+
+                        Contact the program
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             MAIN HEADER
+        ====================================================== -->
+
+        <header class="main-header" id="mainHeader">
+
+            <div class="header-container">
+
+                <!-- =================================================
+                     LOGO
+                ================================================== -->
+
+                <a
+                    href="#home"
+                    class="logo-wrapper"
+                    aria-label="Heads Up home"
+                >
+
+                    <span class="logo-frame">
+
+                        <img
+                            src="logo.png"
+                            alt="Heads Up program logo"
+                            class="logo-image"
+                        >
+
+                    </span>
+
+
+                    <span class="logo-text-wrapper">
+
+                        <strong>
+                            Heads Up
+                        </strong>
+
+                        <small>
+                            Afterschool Program
+                        </small>
+
+                    </span>
+
+                </a>
+
+
+                <!-- =================================================
+                     DESKTOP NAVIGATION
+                ================================================== -->
+
+                <nav
+                    class="desktop-nav"
+                    aria-label="Primary navigation"
+                >
+
+                    <a
+                        href="#home"
+                        class="nav-link is-active"
+                    >
+                        Home
+                    </a>
+
+
+                    <a
+                        href="#about"
+                        class="nav-link"
+                    >
+                        About
+                    </a>
+
+
+                    <a
+                        href="#programs"
+                        class="nav-link"
+                    >
+                        Programs
+                    </a>
+
+
+                    <a
+                        href="#updates"
+                        class="nav-link nav-link--highlight"
+                    >
+                        Updates
+                    </a>
+
+
+                    <a
+                        href="#events"
+                        class="nav-link"
+                    >
+                        Events
+                    </a>
+
+
+                    <a
+                        href="#resources"
+                        class="nav-link"
+                    >
+                        Resources
+                    </a>
+
+
+                    <!-- =============================================
+                         EXPLORE DROPDOWN
+                    ============================================== -->
+
+                    <div
+                        class="nav-dropdown"
+                        id="exploreDropdown"
+                    >
+
+                        <button
+                            class="nav-dropdown__button"
+                            id="exploreButton"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="exploreMenu"
+                        >
+
+                            Explore
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-chevron"></use>
+
+                            </svg>
+
+                        </button>
+
+
+                        <div
+                            class="nav-dropdown__menu"
+                            id="exploreMenu"
+                            role="menu"
+                        >
+
+                            <a
+                                href="#gallery"
+                                role="menuitem"
+                            >
+                                Gallery
+                            </a>
+
+
+                            <a
+                                href="#stories"
+                                role="menuitem"
+                            >
+                                Stories
+                            </a>
+
+
+                            <a
+                                href="#team"
+                                role="menuitem"
+                            >
+                                Our Team
+                            </a>
+
+
+                            <a
+                                href="#faq"
+                                role="menuitem"
+                            >
+                                FAQs
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <a
+                        href="#portal"
+                        class="nav-link nav-link--portal"
+                    >
+                        Family Portal
+                    </a>
+
+                    <a
+                        href="#contact"
+                        class="nav-contact-button"
+                    >
+                        Contact
+                    </a>
+
+                </nav>
+
+
+                <!-- =================================================
+                     MOBILE MENU BUTTON
+                ================================================== -->
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="mobileNav"
+                >
+
+                    <span></span>
+
+                    <span></span>
+
+                    <span></span>
+
+                </button>
+
+            </div>
+
+
+            <!-- =====================================================
+                 FULL MOBILE NAVIGATION
+            ====================================================== -->
+
+            <nav
+                class="mobile-nav"
+                id="mobileNav"
+                aria-label="Mobile navigation"
+                aria-hidden="true"
+                hidden
+                inert
+            >
+
+                <div class="mobile-nav__header">
+
+                    <span>
+                        Explore Heads Up
+                    </span>
+
+
+                    <button
+                        class="mobile-nav__close"
+                        id="mobileNavClose"
+                        type="button"
+                        aria-label="Close navigation menu"
+                    >
+
+                        <svg aria-hidden="true">
+
+                            <use href="#icon-close"></use>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+
+                <div class="mobile-nav__links">
+
+                    <a href="#home">
+
+                        <span>01</span>
+
+                        Home
+
+                    </a>
+
+
+                    <a href="#about">
+
+                        <span>02</span>
+
+                        About
+
+                    </a>
+
+
+                    <a href="#programs">
+
+                        <span>03</span>
+
+                        Programs
+
+                    </a>
+
+
+                    <a href="#updates">
+
+                        <span>04</span>
+
+                        Weekly Updates
+
+                    </a>
+
+
+                    <a href="#events">
+
+                        <span>05</span>
+
+                        Events & Schedule
+
+                    </a>
+
+
+                    <a href="#portal">
+
+                        <span>05A</span>
+
+                        Family Portal
+
+                    </a>
+
+
+                    <a href="#gallery">
+
+                        <span>06</span>
+
+                        Gallery
+
+                    </a>
+
+
+                    <a href="#stories">
+
+                        <span>07</span>
+
+                        Stories
+
+                    </a>
+
+
+                    <a href="#resources">
+
+                        <span>08</span>
+
+                        Resources
+
+                    </a>
+
+
+                    <a href="#team">
+
+                        <span>09</span>
+
+                        Team
+
+                    </a>
+
+
+                    <a href="#faq">
+
+                        <span>10</span>
+
+                        FAQs
+
+                    </a>
+
+
+                    <a href="#contact">
+
+                        <span>11</span>
+
+                        Contact
+
+                    </a>
+
+                </div>
+
+
+                <div class="mobile-nav__emergency">
+
+                    <strong>
+                        Need urgent program help?
+                    </strong>
+
+                    <a href="tel:+10000000000">
+
+                        Call (000) 000-0000
+
+                    </a>
+
+                </div>
+
+            </nav>
+
+
+            <div
+                class="mobile-nav-backdrop"
+                id="mobileNavBackdrop"
+                hidden
+            ></div>
+
+        </header>
+
+    </div>
+
+
+    <!-- =========================================================
+         MAIN WEBSITE CONTENT
+    ========================================================== -->
+
+    <main id="mainContent">
+
+        <!-- =====================================================
+             HERO SECTION
+        ====================================================== -->
+
+        <section
+            class="hero-section"
+            id="home"
+            aria-labelledby="heroTitle"
+        >
+
+            <div
+                class="hero-pattern"
+                aria-hidden="true"
+            ></div>
+
+
+            <div class="hero-container">
+
+                <!-- =================================================
+                     HERO TEXT
+                ================================================== -->
+
+                <div class="hero-left reveal">
+
+                    <p class="hero-eyebrow">
+
+                        <span class="eyebrow-dot"></span>
+
+                        Building community through real experiences
+
+                    </p>
+
+
+                    <h1
+                        id="heroTitle"
+                        class="hero-title"
+                    >
+
+                        Every child deserves a place to
+
+                        <span
+                            class="rotating-word-wrap"
+                            aria-live="polite"
+                        >
+
+                            <span
+                                class="rotating-word"
+                                id="rotatingWord"
+                            >
+                                belong.
+                            </span>
+
+                        </span>
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Heads Up is more than an afterschool program.
+                        We are a welcoming and supportive community space
+                        where students, families, mentors, volunteers,
+                        and researchers learn together, grow together,
+                        and build meaningful connections through education,
+                        creativity, and care.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#updates"
+                            class="button button--primary"
+                        >
+
+                            See this week’s updates
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-arrow"></use>
+
+                            </svg>
+
+                        </a>
+
+
+                        <a
+                            href="#about"
+                            class="button button--secondary"
+                        >
+
+                            Discover Heads Up
+
+                        </a>
+
+
+                        <button
+                            class="button button--text"
+                            type="button"
+                            data-prefill-subject="Program participation question"
+                        >
+
+                            Ask a question
+
+                        </button>
+
+                    </div>
+
+                    <div class="hero-privacy-note reveal">
+
+                        <span class="hero-privacy-note__icon" aria-hidden="true">
+
+                            <svg>
+
+                                <use href="#icon-lock"></use>
+
+                            </svg>
+
+                        </span>
+
+                        <span>
+
+                            <strong>
+                                Public-safe information first.
+                            </strong>
+
+                            Detailed schedules, times, locations, and child-related updates should be shared only through the Family Portal or approved private communication.
+
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- =============================================
+                         RESEARCH-INSPIRED QUICK PATHS
+                    ============================================== -->
+
+                    <div
+                        class="hero-quick-stats"
+                        aria-label="Heads Up community priorities"
+                    >
+
+                        <a
+                            class="quick-stat-card"
+                            href="#stories"
+                        >
+
+                            <span class="quick-stat-card__icon">
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-heart"></use>
+
+                                </svg>
+
+                            </span>
+
+
+                            <span>
+
+                                <strong>
+                                    Supportive
+                                </strong>
+
+                                <small>
+                                    See community stories
+                                </small>
+
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            class="quick-stat-card"
+                            href="#about"
+                        >
+
+                            <span class="quick-stat-card__icon">
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-people"></use>
+
+                                </svg>
+
+                            </span>
+
+
+                            <span>
+
+                                <strong>
+                                    Welcoming
+                                </strong>
+
+                                <small>
+                                    Learn who we are
+                                </small>
+
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            class="quick-stat-card"
+                            href="#resources"
+                        >
+
+                            <span class="quick-stat-card__icon">
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-document"></use>
+
+                                </svg>
+
+                            </span>
+
+
+                            <span>
+
+                                <strong>
+                                    Community-led
+                                </strong>
+
+                                <small>
+                                    Find your resources
+                                </small>
+
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     HERO COMMUNITY PUZZLE VISUAL
+                ================================================== -->
+
+                <div
+                    class="hero-right reveal reveal--delay"
+                    aria-label="Four parts of the Heads Up experience"
+                >
+
+                    <div
+                        class="community-puzzle"
+                        id="communityPuzzle"
+                    >
+
+                        <div
+                            class="community-puzzle__glow"
+                            aria-hidden="true"
+                        ></div>
+
+
+                        <div class="hero-photo-card">
+
+                            <div
+                                class="hero-photo-card__image"
+                                role="img"
+                                aria-label="Children and mentors learning together"
+                            ></div>
+
+
+                            <div class="hero-photo-card__caption">
+
+                                <span
+                                    class="live-dot"
+                                    aria-hidden="true"
+                                ></span>
+
+                                <span>
+                                    Learning, laughter, and belonging
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            class="puzzle-piece puzzle-piece--learn"
+                            href="#programs"
+                        >
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-book"></use>
+
+                            </svg>
+
+                            <span>
+                                Learn
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            class="puzzle-piece puzzle-piece--explore"
+                            href="#gallery"
+                        >
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-microscope"></use>
+
+                            </svg>
+
+                            <span>
+                                Explore
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            class="puzzle-piece puzzle-piece--belong"
+                            href="#stories"
+                        >
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-heart"></use>
+
+                            </svg>
+
+                            <span>
+                                Belong
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            class="puzzle-piece puzzle-piece--grow"
+                            href="#events"
+                        >
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-calendar"></use>
+
+                            </svg>
+
+                            <span>
+                                Grow
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="#updates"
+                class="scroll-indicator"
+                aria-label="Scroll to weekly updates"
+            >
+
+                <span>
+                    See what’s happening
+                </span>
+
+                <span
+                    class="scroll-indicator__mouse"
+                    aria-hidden="true"
+                ></span>
+
+            </a>
+
+        </section>
+
+
+        <!-- =====================================================
+             ACTIONABLE QUICK ACCESS RIBBON
+
+             The previous static trust words are retained as
+             useful destinations rather than random text.
+        ====================================================== -->
+
+        <section
+            class="action-ribbon"
+            aria-label="Popular website destinations"
+        >
+
+            <div class="action-ribbon__inner">
+
+                <a
+                    href="#updates"
+                    class="action-ribbon__item"
+                >
+
+                    <svg aria-hidden="true">
+
+                        <use href="#icon-calendar"></use>
+
+                    </svg>
+
+
+                    <span>
+
+                        <strong>
+                            Latest updates
+                        </strong>
+
+                        <small>
+                            What happened this week
+                        </small>
+
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#events"
+                    class="action-ribbon__item"
+                >
+
+                    <svg aria-hidden="true">
+
+                        <use href="#icon-clock"></use>
+
+                    </svg>
+
+
+                    <span>
+
+                        <strong>
+                            Schedule & events
+                        </strong>
+
+                        <small>
+                            Dates, times, and reminders
+                        </small>
+
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#stories"
+                    class="action-ribbon__item"
+                >
+
+                    <svg aria-hidden="true">
+
+                        <use href="#icon-message"></use>
+
+                    </svg>
+
+
+                    <span>
+
+                        <strong>
+                            Real experiences
+                        </strong>
+
+                        <small>
+                            Stories from the community
+                        </small>
+
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#resources"
+                    class="action-ribbon__item"
+                >
+
+                    <svg aria-hidden="true">
+
+                        <use href="#icon-document"></use>
+
+                    </svg>
+
+
+                    <span>
+
+                        <strong>
+                            Find resources
+                        </strong>
+
+                        <small>
+                            Parents, volunteers, researchers
+                        </small>
+
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="action-ribbon__item action-ribbon__item--contact"
+                >
+
+                    <svg aria-hidden="true">
+
+                        <use href="#icon-phone"></use>
+
+                    </svg>
+
+
+                    <span>
+
+                        <strong>
+                            Contact Heads Up
+                        </strong>
+
+                        <small>
+                            Get help without searching
+                        </small>
+
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section
+            class="about-section section-spacing"
+            id="about"
+            aria-labelledby="aboutTitle"
+        >
+
+            <div class="section-shell">
+
+                <div class="section-heading section-heading--split reveal">
+
+                    <div>
+
+                        <p class="section-tag">
+                            About Heads Up
+                        </p>
+
+
+                        <h2 id="aboutTitle">
+
+                            A program built around people,
+                            growth, and belonging.
+
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+
+                        Community research consistently described Heads Up
+                        as supportive, safe, welcoming, encouraging, and fun.
+                        The website mirrors those same qualities through clear
+                        navigation, real stories, warm visuals, and easy access
+                        to current information.
+
+                    </p>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <article class="about-card about-card--feature reveal">
+
+                        <div class="card-kicker">
+                            Who we are
+                        </div>
+
+
+                        <h3>
+                            More than an afterschool program
+                        </h3>
+
+
+                        <p>
+
+                            Heads Up is a relationship-driven community space
+                            supporting students academically, socially,
+                            emotionally, and personally through mentorship,
+                            collaboration, hands-on learning, and meaningful
+                            shared experiences.
+
+                        </p>
+
+
+                        <p>
+
+                            Students are encouraged to explore, ask questions,
+                            work with others, and show up as themselves.
+                            Mentors guide rather than control, helping young
+                            people build confidence while developing academic
+                            and social skills.
+
+                        </p>
+
+
+                        <button
+                            class="text-link"
+                            type="button"
+                            data-modal-content="about"
+                        >
+
+                            Read the full program overview
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-arrow"></use>
+
+                            </svg>
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="about-card reveal">
+
+                        <span class="about-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-heart"></use>
+
+                            </svg>
+
+                        </span>
+
+
+                        <h3>
+                            Mission
+                        </h3>
+
+
+                        <p>
+
+                            To create meaningful learning experiences
+                            and strong community connections while
+                            supporting children, families, volunteers,
+                            and researchers through collaboration and care.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="about-card reveal">
+
+                        <span class="about-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-shield"></use>
+
+                            </svg>
+
+                        </span>
+
+
+                        <h3>
+                            What families should feel
+                        </h3>
+
+
+                        <ul class="check-list">
+
+                            <li>
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-check"></use>
+
+                                </svg>
+
+                                Safe and welcomed
+
+                            </li>
+
+
+                            <li>
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-check"></use>
+
+                                </svg>
+
+                                Clearly informed
+
+                            </li>
+
+
+                            <li>
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-check"></use>
+
+                                </svg>
+
+                                Connected to staff
+
+                            </li>
+
+
+                            <li>
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-check"></use>
+
+                                </svg>
+
+                                Confident in the program
+
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+                    <article class="about-card reveal">
+
+                        <span class="about-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-people"></use>
+
+                            </svg>
+
+                        </span>
+
+
+                        <h3>
+                            Community priorities
+                        </h3>
+
+
+                        <ul class="check-list">
+
+                            <li>
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-check"></use>
+
+                                </svg>
+
+                                Academic success
+
+                            </li>
+
+
+                            <li>
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-check"></use>
+
+                                </svg>
+
+                                Cultural understanding
+
+                            </li>
+
+
+                            <li>
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-check"></use>
+
+                                </svg>
+
+                                Critical consciousness
+
+                            </li>
+
+
+                            <li>
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-check"></use>
+
+                                </svg>
+
+                                Shared growth
+
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROGRAMS
+        ====================================================== -->
+
+        <section
+            class="programs-section section-spacing"
+            id="programs"
+            aria-labelledby="programsTitle"
+        >
+
+            <div class="section-shell">
+
+                <div class="section-heading section-heading--center reveal">
+
+                    <p class="section-tag">
+                        Programs & activities
+                    </p>
+
+
+                    <h2 id="programsTitle">
+
+                        Interactive experiences designed
+                        around student growth.
+
+                    </h2>
+
+
+                    <p>
+
+                        Field observations showed the strongest engagement
+                        during social, hands-on experiences such as microscope
+                        exploration, outdoor discovery, teamwork, shared meals,
+                        and collaborative problem-solving.
+
+                    </p>
+
+                </div>
+
+
+                <div class="program-grid">
+
+                    <article class="program-card reveal">
+
+                        <div class="program-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-book"></use>
+
+                            </svg>
+
+                        </div>
+
+
+                        <span class="program-card__number">
+                            01
+                        </span>
+
+
+                        <h3>
+                            Homework Club
+                        </h3>
+
+
+                        <p>
+
+                            Structured academic support designed to help
+                            students complete assignments, build confidence,
+                            and collaborate with peers and mentors.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="card-action"
+                            data-modal-content="homework"
+                        >
+
+                            Explore Homework Club
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="program-card reveal">
+
+                        <div class="program-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-microscope"></use>
+
+                            </svg>
+
+                        </div>
+
+
+                        <span class="program-card__number">
+                            02
+                        </span>
+
+
+                        <h3>
+                            STEM Exploration
+                        </h3>
+
+
+                        <p>
+
+                            Hands-on science, technology, engineering,
+                            and math experiences encouraging curiosity,
+                            creativity, teamwork, and active learning.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="card-action"
+                            data-modal-content="stem"
+                        >
+
+                            Explore STEM activities
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="program-card reveal">
+
+                        <div class="program-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-tree"></use>
+
+                            </svg>
+
+                        </div>
+
+
+                        <span class="program-card__number">
+                            03
+                        </span>
+
+
+                        <h3>
+                            Community Engagement
+                        </h3>
+
+
+                        <p>
+
+                            Outdoor exploration, shared meals,
+                            family gatherings, and activities focused
+                            on collaboration, leadership, and positive
+                            relationships.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="card-action"
+                            data-modal-content="community"
+                        >
+
+                            Explore community activities
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="program-card reveal">
+
+                        <div class="program-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-palette"></use>
+
+                            </svg>
+
+                        </div>
+
+
+                        <span class="program-card__number">
+                            04
+                        </span>
+
+
+                        <h3>
+                            Creative Activities
+                        </h3>
+
+
+                        <p>
+
+                            Interactive projects that encourage imagination,
+                            communication, personal expression, and
+                            collaborative learning.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="card-action"
+                            data-modal-content="creative"
+                        >
+
+                            Explore creative activities
+
+                        </button>
+
+                    </article>
+
+                </div>
+
+
+                <!-- =================================================
+                     A DAY AT HEADS UP
+                ================================================== -->
+
+                <div class="day-at-heads-up reveal">
+
+                    <div class="day-at-heads-up__intro">
+
+                        <p class="section-tag">
+                            A day at Heads Up
+                        </p>
+
+
+                        <h3>
+                            A simple view of the student experience
+                        </h3>
+
+
+                        <p>
+
+                            This visual sequence helps families quickly
+                            understand what a typical program day may include.
+
+                        </p>
+
+                    </div>
+
+
+                    <ol class="day-timeline">
+
+                        <li>
+
+                            <span>1</span>
+
+                            <strong>
+                                Arrive & connect
+                            </strong>
+
+                            <small>
+                                Welcome, conversation, and check-in
+                            </small>
+
+                        </li>
+
+
+                        <li>
+
+                            <span>2</span>
+
+                            <strong>
+                                Homework support
+                            </strong>
+
+                            <small>
+                                Guidance from mentors and peers
+                            </small>
+
+                        </li>
+
+
+                        <li>
+
+                            <span>3</span>
+
+                            <strong>
+                                Hands-on activity
+                            </strong>
+
+                            <small>
+                                STEM, art, exploration, or teamwork
+                            </small>
+
+                        </li>
+
+
+                        <li>
+
+                            <span>4</span>
+
+                            <strong>
+                                Share a meal
+                            </strong>
+
+                            <small>
+                                Conversation, laughter, and belonging
+                            </small>
+
+                        </li>
+
+
+                        <li>
+
+                            <span>5</span>
+
+                            <strong>
+                                Reflect & head home
+                            </strong>
+
+                            <small>
+                                Share what was learned and enjoyed
+                            </small>
+
+                        </li>
+
+                    </ol>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMMUNICATION HUB
+
+             Weekly Updates + Weekly Schedule + Upcoming Events
+             are intentionally grouped in one important section.
+        ====================================================== -->
+
+        <section
+            class="communication-hub section-spacing"
+            id="updates"
+            aria-labelledby="updatesTitle"
+        >
+
+            <div class="section-shell">
+
+                <div class="section-heading section-heading--split reveal">
+
+                    <div>
+
+                        <p class="section-tag">
+                            Community communication hub
+                        </p>
+
+
+                        <h2 id="updatesTitle">
+
+                            Weekly updates, schedules,
+                            and upcoming events—in one place.
+
+                        </h2>
+
+                    </div>
+
+
+                    <div class="last-updated-card">
+
+                        <span
+                            class="live-dot"
+                            aria-hidden="true"
+                        ></span>
+
+
+                        <span>
+
+                            <small>
+                                Information status
+                            </small>
+
+                            <strong id="lastUpdatedText">
+                                Updated recently
+                            </strong>
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PUBLIC-SAFE COMMUNICATION NOTICE
+
+                     This protects children and families by avoiding
+                     public display of exact times, locations, and
+                     student-specific details. Use a real authenticated
+                     portal before publishing private schedule data.
+                ================================================== -->
+
+                <div
+                    class="communication-privacy-notice reveal"
+                    role="note"
+                    aria-label="Private schedule and update notice"
+                >
+
+                    <div class="communication-privacy-notice__icon" aria-hidden="true">
+
+                        <svg>
+
+                            <use href="#icon-lock"></use>
+
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="communication-privacy-notice__eyebrow">
+                            Child-safe communication
+                        </p>
+
+
+                        <h3>
+                            Public updates stay general. Detailed schedules are shared privately.
+                        </h3>
+
+
+                        <p>
+                            To protect students and families, the public website should not display exact program times, locations, attendance details, or child-specific updates. Families, volunteers, and approved team members should use the Family Portal or direct program communication for private information.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="#portal"
+                        class="button button--primary button--small"
+                    >
+                        Open Family Portal
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     IMPORTANT ANNOUNCEMENT STRIP
+                ================================================== -->
+
+                <div
+                    class="announcement-strip reveal"
+                    aria-label="Important announcement"
+                >
+
+                    <span class="announcement-strip__label">
+                        Important
+                    </span>
+
+
+                    <div class="announcement-strip__viewport">
+
+                        <p id="announcementTickerText">
+
+                            Check this section each week for schedule
+                            changes, family reminders, activities,
+                            and program news.
+
+                        </p>
+
+                    </div>
+
+
+                    <a href="#events">
+                        View schedule
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     COMMUNICATION HUB TABS
+                ================================================== -->
+
+                <div
+                    class="hub-tabs reveal"
+                    role="tablist"
+                    aria-label="Communication hub sections"
+                >
+
+                    <button
+                        type="button"
+                        class="hub-tab is-active"
+                        id="updatesTab"
+                        data-hub-tab="updates"
+                        role="tab"
+                        aria-selected="true"
+                        aria-controls="updatesPanel"
+                    >
+
+                        Weekly Updates
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="hub-tab"
+                        id="scheduleTab"
+                        data-hub-tab="schedule"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="schedulePanel"
+                    >
+
+                        Weekly Schedule
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="hub-tab"
+                        id="eventsTab"
+                        data-hub-tab="events"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="eventsPanel"
+                    >
+
+                        Upcoming Events
+
+                    </button>
+
+                </div>
+
+
+                <div class="hub-panels">
+
+                    <!-- =============================================
+                         WEEKLY UPDATES PANEL
+
+                         JavaScript fills this area using the
+                         weeklyUpdates data in script.js.
+                    ============================================== -->
+
+                    <div
+                        class="hub-panel is-active"
+                        id="updatesPanel"
+                        data-hub-panel="updates"
+                        role="tabpanel"
+                        aria-labelledby="updatesTab"
+                    >
+
+                        <div
+                            class="featured-update-shell"
+                            id="featuredUpdate"
+                        ></div>
+
+
+                        <div
+                            class="update-card-grid"
+                            id="weeklyUpdatesGrid"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- =============================================
+                         WEEKLY SCHEDULE PANEL
+
+                         JavaScript fills this area using the
+                         weeklySchedule data in script.js.
+                    ============================================== -->
+
+                    <div
+                        class="hub-panel"
+                        id="schedulePanel"
+                        data-hub-panel="schedule"
+                        role="tabpanel"
+                        aria-labelledby="scheduleTab"
+                        hidden
+                    >
+
+                        <div class="schedule-summary">
+
+                            <div>
+
+                                <p class="section-tag">
+                                    Regular program schedule
+                                </p>
+
+
+                                <h3>
+                                    Clear, scannable, and easy to update
+                                </h3>
+
+                            </div>
+
+
+                            <button
+                                class="button button--secondary button--small"
+                                id="printScheduleButton"
+                                type="button"
+                            >
+
+                                Print schedule
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="schedule-table"
+                            id="weeklyScheduleList"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- =============================================
+                         UPCOMING EVENTS PANEL
+
+                         JavaScript fills this area using the
+                         upcomingEvents data in script.js.
+                    ============================================== -->
+
+                    <div
+                        class="hub-panel"
+                        id="eventsPanel"
+                        data-hub-panel="events"
+                        role="tabpanel"
+                        aria-labelledby="eventsTab"
+                        hidden
+                    >
+
+                        <div class="event-toolbar">
+
+                            <div class="event-toolbar__title">
+
+                                <p class="section-tag">
+                                    Upcoming events
+                                </p>
+
+
+                                <h3>
+                                    Find the right event quickly
+                                </h3>
+
+                            </div>
+
+
+                            <div
+                                class="event-filter"
+                                aria-label="Filter events"
+                            >
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-filter"></use>
+
+                                </svg>
+
+
+                                <button
+                                    type="button"
+                                    class="event-filter__button is-active"
+                                    data-event-filter="all"
+                                >
+
+                                    All
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="event-filter__button"
+                                    data-event-filter="family"
+                                >
+
+                                    Families
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="event-filter__button"
+                                    data-event-filter="student"
+                                >
+
+                                    Students
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="event-filter__button"
+                                    data-event-filter="volunteer"
+                                >
+
+                                    Volunteers
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="event-grid"
+                            id="upcomingEventsGrid"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hub-help reveal">
+
+                    <div>
+
+                        <strong>
+                            Can’t find what you need?
+                        </strong>
+
+                        <span>
+
+                            Contact information stays one click
+                            away throughout the website.
+
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="#contact"
+                        class="button button--primary button--small"
+                    >
+
+                        Contact Heads Up
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FAMILY PORTAL / PRIVATE ACCESS SOLUTION
+
+             This section is intentionally added without removing the
+             existing website layout. It provides a professional,
+             child-safe solution for schedules and updates that should
+             not be public on the open internet.
+        ====================================================== -->
+
+        <section
+            class="portal-section section-spacing"
+            id="portal"
+            aria-labelledby="portalTitle"
+        >
+
+            <div class="section-shell">
+
+                <div class="section-heading section-heading--split reveal">
+
+                    <div>
+
+                        <p class="section-tag">
+                            Family Portal
+                        </p>
+
+
+                        <h2 id="portalTitle">
+                            Private schedule access for families and approved team members.
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+                        The public website should welcome visitors, explain the program, and make contact easy. Details such as exact meeting times, locations, student updates, and private announcements should be shared only through approved access.
+                    </p>
+
+                </div>
+
+
+                <div class="portal-grid">
+
+                    <article class="portal-card portal-card--primary reveal">
+
+                        <div class="portal-card__icon" aria-hidden="true">
+
+                            <svg>
+
+                                <use href="#icon-lock"></use>
+
+                            </svg>
+
+                        </div>
+
+
+                        <p class="card-kicker">
+                            Recommended solution
+                        </p>
+
+
+                        <h3>
+                            Use a real login system before publishing private details.
+                        </h3>
+
+
+                        <p>
+                            For the final live website, connect this portal button to an authenticated service such as Firebase Authentication, Supabase Auth, Google Workspace, Netlify Identity, or another approved organization login. The frontend should request private updates from a protected backend after a verified user signs in.
+                        </p>
+
+
+                        <ul class="portal-checklist">
+
+                            <li>
+                                <svg aria-hidden="true"><use href="#icon-check"></use></svg>
+                                Keep exact times and locations out of public HTML, CSS, and JavaScript.
+                            </li>
+
+                            <li>
+                                <svg aria-hidden="true"><use href="#icon-check"></use></svg>
+                                Share private schedules only with approved parents, guardians, volunteers, staff, and researchers.
+                            </li>
+
+                            <li>
+                                <svg aria-hidden="true"><use href="#icon-check"></use></svg>
+                                Continue using the public site for mission, contact, stories, resources, and general program updates.
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+                    <article class="portal-card reveal">
+
+                        <p class="card-kicker">
+                            Portal sign-in placeholder
+                        </p>
+
+
+                        <h3>
+                            Frontend access preview
+                        </h3>
+
+
+                        <p>
+                            This form is a design placeholder only. It shows how the Family Portal can look, but it is not a secure login by itself. Replace it with the approved authentication system before posting private program details.
+                        </p>
+
+
+                        <form
+                            class="portal-login-form"
+                            id="portalLoginForm"
+                        >
+
+                            <label for="portalEmail">
+                                Email
+                            </label>
+
+
+                            <input
+                                id="portalEmail"
+                                name="portalEmail"
+                                type="email"
+                                placeholder="family@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+
+                            <label for="portalAccessCode">
+                                Access code
+                            </label>
+
+
+                            <input
+                                id="portalAccessCode"
+                                name="portalAccessCode"
+                                type="password"
+                                placeholder="Development preview code"
+                                autocomplete="current-password"
+                                required
+                            >
+
+
+                            <button
+                                type="submit"
+                                class="button button--primary"
+                            >
+                                Preview portal access
+                            </button>
+
+                        </form>
+
+
+                        <div
+                            class="portal-status"
+                            id="portalStatus"
+                            role="status"
+                            aria-live="polite"
+                        >
+
+                            Private details are hidden until approved access is connected.
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="portal-card portal-card--soft reveal">
+
+                        <p class="card-kicker">
+                            What belongs where
+                        </p>
+
+
+                        <h3>
+                            Public website vs. private portal
+                        </h3>
+
+
+                        <div class="portal-table">
+
+                            <div>
+                                <strong>Public website</strong>
+                                <span>Mission, general program overview, contact, approved stories, resources, volunteer interest, and broad updates.</span>
+                            </div>
+
+
+                            <div>
+                                <strong>Private portal</strong>
+                                <span>Exact schedules, locations, attendance details, child-specific updates, internal documents, and approved family notices.</span>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Existing Events link anchor retained for compatibility. -->
+
+        <div
+            id="events"
+            class="anchor-target"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- =====================================================
+             GALLERY
+        ====================================================== -->
+
+        <section
+            class="gallery-section section-spacing"
+            id="gallery"
+            aria-labelledby="galleryTitle"
+        >
+
+            <div class="section-shell section-shell--wide">
+
+                <div class="section-heading section-heading--split reveal">
+
+                    <div>
+
+                        <p class="section-tag">
+                            Gallery
+                        </p>
+
+
+                        <h2 id="galleryTitle">
+
+                            Moments that show the program—
+                            not just describe it.
+
+                        </h2>
+
+                    </div>
+
+
+                    <div
+                        class="gallery-controls"
+                        aria-label="Gallery controls"
+                    >
+
+                        <button
+                            type="button"
+                            id="galleryPrevious"
+                            aria-label="Previous gallery images"
+                        >
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-left"></use>
+
+                            </svg>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="galleryToggle"
+                            aria-label="Pause gallery movement"
+                            aria-pressed="false"
+                        >
+
+                            <svg
+                                class="gallery-toggle-pause"
+                                aria-hidden="true"
+                            >
+
+                                <use href="#icon-pause"></use>
+
+                            </svg>
+
+
+                            <svg
+                                class="gallery-toggle-play"
+                                aria-hidden="true"
+                            >
+
+                                <use href="#icon-play"></use>
+
+                            </svg>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="galleryNext"
+                            aria-label="Next gallery images"
+                        >
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-right"></use>
+
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="gallery-marquee"
+                    id="galleryMarquee"
+                    tabindex="0"
+                    aria-label="Automatically moving gallery. Hover or focus to pause."
+                >
+
+                    <div
+                        class="gallery-track"
+                        id="galleryTrack"
+                    >
+
+                        <article class="gallery-card">
+
+                            <div
+                                class="gallery-photo gallery-photo--1"
+                                role="img"
+                                aria-label="Students exploring a science activity"
+                            ></div>
+
+
+                            <div class="gallery-card__caption">
+
+                                <strong>
+                                    Hands-on science
+                                </strong>
+
+                                <span>
+                                    Curiosity in action
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="gallery-card">
+
+                            <div
+                                class="gallery-photo gallery-photo--2"
+                                role="img"
+                                aria-label="Students working together"
+                            ></div>
+
+
+                            <div class="gallery-card__caption">
+
+                                <strong>
+                                    Homework Club
+                                </strong>
+
+                                <span>
+                                    Learning together
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="gallery-card">
+
+                            <div
+                                class="gallery-photo gallery-photo--3"
+                                role="img"
+                                aria-label="Community members sharing a meal"
+                            ></div>
+
+
+                            <div class="gallery-card__caption">
+
+                                <strong>
+                                    Community moments
+                                </strong>
+
+                                <span>
+                                    Meals, stories, and laughter
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="gallery-card">
+
+                            <div
+                                class="gallery-photo gallery-photo--4"
+                                role="img"
+                                aria-label="Student creating an art project"
+                            ></div>
+
+
+                            <div class="gallery-card__caption">
+
+                                <strong>
+                                    Creative projects
+                                </strong>
+
+                                <span>
+                                    Expression and imagination
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="gallery-card">
+
+                            <div
+                                class="gallery-photo gallery-photo--5"
+                                role="img"
+                                aria-label="Mentor guiding a student"
+                            ></div>
+
+
+                            <div class="gallery-card__caption">
+
+                                <strong>
+                                    Mentorship
+                                </strong>
+
+                                <span>
+                                    Guidance with care
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="gallery-card">
+
+                            <div
+                                class="gallery-photo gallery-photo--6"
+                                role="img"
+                                aria-label="Students exploring outdoors"
+                            ></div>
+
+
+                            <div class="gallery-card__caption">
+
+                                <strong>
+                                    Outdoor learning
+                                </strong>
+
+                                <span>
+                                    Discovering the world nearby
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="gallery-card">
+
+                            <div
+                                class="gallery-photo gallery-photo--7"
+                                role="img"
+                                aria-label="Students participating in a group discussion"
+                            ></div>
+
+
+                            <div class="gallery-card__caption">
+
+                                <strong>
+                                    Student voices
+                                </strong>
+
+                                <span>
+                                    Ideas worth hearing
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="gallery-card">
+
+                            <div
+                                class="gallery-photo gallery-photo--8"
+                                role="img"
+                                aria-label="Families attending a community event"
+                            ></div>
+
+
+                            <div class="gallery-card__caption">
+
+                                <strong>
+                                    Family engagement
+                                </strong>
+
+                                <span>
+                                    Growing stronger together
+                                </span>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <p class="gallery-note">
+
+                    Use only photos with appropriate permission.
+                    Replace the image files in the
+                    <code>images</code>
+                    folder while keeping the same filenames.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             STORIES
+        ====================================================== -->
+
+        <section
+            class="stories-section section-spacing"
+            id="stories"
+            aria-labelledby="storiesTitle"
+        >
+
+            <div class="section-shell">
+
+                <div class="section-heading section-heading--center reveal">
+
+                    <p class="section-tag">
+                        Community stories
+                    </p>
+
+
+                    <h2 id="storiesTitle">
+                        Real experiences build trust.
+                    </h2>
+
+
+                    <p>
+
+                        Participants asked for testimonials, authentic
+                        images, mentor experiences, and personal stories
+                        of positive impact. These voices help the website
+                        feel like the community it represents.
+
+                    </p>
+
+                </div>
+
+
+                <div class="story-grid">
+
+                    <article class="story-card story-card--featured reveal">
+
+                        <div class="story-card__quote-mark">
+                            “
+                        </div>
+
+
+                        <blockquote>
+
+                            The program is valuable because it acts
+                            as a supporting space that meets emotional
+                            needs and provides stability to families
+                            involved in the program.
+
+                        </blockquote>
+
+
+                        <footer>
+                            Research participant
+                        </footer>
+
+                    </article>
+
+
+                    <article class="story-card reveal">
+
+                        <div class="story-card__quote-mark">
+                            “
+                        </div>
+
+
+                        <blockquote>
+
+                            The community-oriented approach and the
+                            opportunity to watch students grow make
+                            this work meaningful.
+
+                        </blockquote>
+
+
+                        <footer>
+                            Volunteer reflection
+                        </footer>
+
+                    </article>
+
+
+                    <article class="story-card reveal">
+
+                        <div class="story-card__quote-mark">
+                            “
+                        </div>
+
+
+                        <blockquote>
+
+                            It is fun, everybody is nice, and it is
+                            a great place to de-stress and have a
+                            good time.
+
+                        </blockquote>
+
+
+                        <footer>
+                            Student check-in
+                        </footer>
+
+                    </article>
+
+                </div>
+
+
+                <div class="story-cta reveal">
+
+                    <div>
+
+                        <p class="section-tag">
+                            Share a story
+                        </p>
+
+
+                        <h3>
+
+                            Help future families understand
+                            what Heads Up feels like.
+
+                        </h3>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="button button--primary"
+                        data-prefill-subject="Heads Up community story"
+                    >
+
+                        Submit a story
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             RESOURCES AND USER PATHWAYS
+        ====================================================== -->
+
+        <section
+            class="resources-section section-spacing"
+            id="resources"
+            aria-labelledby="resourcesTitle"
+        >
+
+            <div class="section-shell">
+
+                <div class="section-heading section-heading--center reveal">
+
+                    <p class="section-tag">
+                        Find your path
+                    </p>
+
+
+                    <h2 id="resourcesTitle">
+
+                        Information organized by who
+                        is using the website.
+
+                    </h2>
+
+
+                    <p>
+
+                        This structure responds directly to requests
+                        for separate, clearly labeled paths for parents,
+                        volunteers, researchers, incoming team members,
+                        and community partners.
+
+                    </p>
+
+                </div>
+
+
+                <div class="resource-grid">
+
+                    <article class="resource-card resource-card--parents reveal">
+
+                        <span class="resource-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-home"></use>
+
+                            </svg>
+
+                        </span>
+
+
+                        <span class="resource-card__eyebrow">
+                            For families
+                        </span>
+
+
+                        <h3>
+                            Parents & guardians
+                        </h3>
+
+
+                        <p>
+
+                            Schedules, updates, safety information,
+                            contact details, activities, and common
+                            questions.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="card-action"
+                            data-resource="parents"
+                        >
+
+                            View parent resources
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="resource-card resource-card--volunteers reveal">
+
+                        <span class="resource-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-user-plus"></use>
+
+                            </svg>
+
+                        </span>
+
+
+                        <span class="resource-card__eyebrow">
+                            Get involved
+                        </span>
+
+
+                        <h3>
+                            Volunteers & mentors
+                        </h3>
+
+
+                        <p>
+
+                            Roles, expectations, sign-up information,
+                            onboarding, schedules, and ways to support
+                            students.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="card-action"
+                            data-resource="volunteers"
+                        >
+
+                            View volunteer resources
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="resource-card resource-card--research reveal">
+
+                        <span class="resource-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-document"></use>
+
+                            </svg>
+
+                        </span>
+
+
+                        <span class="resource-card__eyebrow">
+                            Research & transparency
+                        </span>
+
+
+                        <h3>
+                            Researchers
+                        </h3>
+
+
+                        <p>
+
+                            Project goals, research overview, ethical
+                            considerations, community-centered methods,
+                            and documentation.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="card-action"
+                            data-resource="researchers"
+                        >
+
+                            View research resources
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="resource-card resource-card--incoming reveal">
+
+                        <span class="resource-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-people"></use>
+
+                            </svg>
+
+                        </span>
+
+
+                        <span class="resource-card__eyebrow">
+                            New to the team
+                        </span>
+
+
+                        <h3>
+                            Incoming team members
+                        </h3>
+
+
+                        <p>
+
+                            Onboarding overview, website guide, role
+                            expectations, project context, and where
+                            to find key materials.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="card-action"
+                            data-resource="incoming"
+                        >
+
+                            View onboarding resources
+
+                        </button>
+
+                    </article>
+
+
+                    <article class="resource-card resource-card--community reveal">
+
+                        <span class="resource-card__icon">
+
+                            <svg aria-hidden="true">
+
+                                <use href="#icon-heart"></use>
+
+                            </svg>
+
+                        </span>
+
+
+                        <span class="resource-card__eyebrow">
+                            Connect & partner
+                        </span>
+
+
+                        <h3>
+                            Community partners
+                        </h3>
+
+
+                        <p>
+
+                            Program impact, partnership inquiries,
+                            events, participation opportunities,
+                            and contact information.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="card-action"
+                            data-resource="community"
+                        >
+
+                            View community information
+
+                        </button>
+
+                    </article>
+
+                </div>
+
+
+                <!-- =================================================
+                     TRANSPARENCY PANEL
+                ================================================== -->
+
+                <div class="transparency-panel reveal">
+
+                    <div class="transparency-panel__content">
+
+                        <p class="section-tag">
+                            Trust & transparency
+                        </p>
+
+
+                        <h3>
+                            Clear information should be easy to verify.
+                        </h3>
+
+
+                        <p>
+
+                            Use this area for approved program documents,
+                            research goals, policies, photo permissions,
+                            accessibility information, and other materials
+                            that help families understand how Heads Up
+                            operates.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="transparency-panel__actions">
+
+                        <button
+                            type="button"
+                            class="button button--secondary button--small"
+                            data-modal-content="transparency"
+                        >
+
+                            View transparency notes
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="button button--secondary button--small"
+                            data-modal-content="photoPolicy"
+                        >
+
+                            Photo & copyright guidance
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="button button--secondary button--small"
+                            data-modal-content="accessibility"
+                        >
+
+                            Accessibility statement
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TEAM
+        ====================================================== -->
+
+        <section
+            class="team-section section-spacing"
+            id="team"
+            aria-labelledby="teamTitle"
+        >
+
+            <div class="section-shell">
+
+                <div class="section-heading section-heading--split reveal">
+
+                    <div>
+
+                        <p class="section-tag">
+                            Our team
+                        </p>
+
+
+                        <h2 id="teamTitle">
+
+                            The people who make the program
+                            feel personal.
+
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+
+                        Survey participants asked to see program
+                        leaders, mentors, volunteers, and researchers—
+                        not only names, but their roles and experiences.
+
+                    </p>
+
+                </div>
+
+
+                <div class="team-grid">
+
+                    <article class="team-card reveal">
+
+                        <div
+                            class="team-photo team-photo--leadership"
+                            role="img"
+                            aria-label="Program leadership placeholder image"
+                        ></div>
+
+
+                        <div class="team-card__body">
+
+                            <span>
+                                Program leadership
+                            </span>
+
+
+                            <h3>
+                                Leadership & program direction
+                            </h3>
+
+
+                            <p>
+
+                                Add approved names, roles, short
+                                biographies, and relevant program
+                                experience here.
+
+                            </p>
+
+
+                            <button
+                                type="button"
+                                class="card-action"
+                                data-team="leadership"
+                            >
+
+                                Meet program leadership
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="team-card reveal">
+
+                        <div
+                            class="team-photo team-photo--research"
+                            role="img"
+                            aria-label="Research team placeholder image"
+                        ></div>
+
+
+                        <div class="team-card__body">
+
+                            <span>
+                                Research team
+                            </span>
+
+
+                            <h3>
+                                Community-centered research
+                            </h3>
+
+
+                            <p>
+
+                                Introduce the people gathering, organizing,
+                                and translating community feedback into
+                                program and website improvements.
+
+                            </p>
+
+
+                            <button
+                                type="button"
+                                class="card-action"
+                                data-team="research"
+                            >
+
+                                Meet the research team
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="team-card reveal">
+
+                        <div
+                            class="team-photo team-photo--volunteers"
+                            role="img"
+                            aria-label="Volunteer and mentor placeholder image"
+                        ></div>
+
+
+                        <div class="team-card__body">
+
+                            <span>
+                                Mentors & volunteers
+                            </span>
+
+
+                            <h3>
+                                Guidance, encouragement, and care
+                            </h3>
+
+
+                            <p>
+
+                                Show how mentors guide students,
+                                share knowledge from their majors
+                                and careers, and help create belonging.
+
+                            </p>
+
+
+                            <button
+                                type="button"
+                                class="card-action"
+                                data-team="volunteers"
+                            >
+
+                                Meet mentors & volunteers
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FREQUENTLY ASKED QUESTIONS
+        ====================================================== -->
+
+        <section
+            class="faq-section section-spacing"
+            id="faq"
+            aria-labelledby="faqTitle"
+        >
+
+            <div class="section-shell faq-shell">
+
+                <div class="section-heading reveal">
+
+                    <p class="section-tag">
+                        Frequently asked questions
+                    </p>
+
+
+                    <h2 id="faqTitle">
+
+                        Direct answers without sending
+                        visitors in circles.
+
+                    </h2>
+
+
+                    <p>
+
+                        Participants specifically mentioned frustration
+                        with repeated redirects and hard-to-find answers.
+                        This accordion keeps common information in one place.
+
+                    </p>
+
+                </div>
+
+
+                <div class="faq-list" id="faqList">
+
+                    <article class="faq-item reveal">
+
+                        <h3>
+
+                            <button
+                                type="button"
+                                class="faq-question"
+                                aria-expanded="false"
+                            >
+
+                                Where can I find this week’s schedule?
+
+                                <span aria-hidden="true">
+                                    +
+                                </span>
+
+                            </button>
+
+                        </h3>
+
+
+                        <div class="faq-answer" hidden>
+
+                            <p>
+
+                                Use the Weekly Updates section and select
+                                the “Weekly Schedule” tab. Schedule information,
+                                event reminders, and changes are grouped
+                                together there.
+
+                            </p>
+
+
+                            <a href="#updates">
+                                Go to the communication hub
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="faq-item reveal">
+
+                        <h3>
+
+                            <button
+                                type="button"
+                                class="faq-question"
+                                aria-expanded="false"
+                            >
+
+                                How do I contact program staff?
+
+                                <span aria-hidden="true">
+                                    +
+                                </span>
+
+                            </button>
+
+                        </h3>
+
+
+                        <div class="faq-answer" hidden>
+
+                            <p>
+
+                                The Contact section includes the main
+                                email, phone number, operating hours,
+                                and a message form. Emergency contact
+                                information is also fixed at the top
+                                of every page.
+
+                            </p>
+
+
+                            <a href="#contact">
+                                Go to contact information
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="faq-item reveal">
+
+                        <h3>
+
+                            <button
+                                type="button"
+                                class="faq-question"
+                                aria-expanded="false"
+                            >
+
+                                How can I volunteer or become involved?
+
+                                <span aria-hidden="true">
+                                    +
+                                </span>
+
+                            </button>
+
+                        </h3>
+
+
+                        <div class="faq-answer" hidden>
+
+                            <p>
+
+                                Open the Volunteer & Mentor resources
+                                card for expectations, onboarding,
+                                schedule information, and the participation
+                                contact option.
+
+                            </p>
+
+
+                            <button
+                                type="button"
+                                data-resource="volunteers"
+                            >
+
+                                Open volunteer resources
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="faq-item reveal">
+
+                        <h3>
+
+                            <button
+                                type="button"
+                                class="faq-question"
+                                aria-expanded="false"
+                            >
+
+                                How are student photos and stories handled?
+
+                                <span aria-hidden="true">
+                                    +
+                                </span>
+
+                            </button>
+
+                        </h3>
+
+
+                        <div class="faq-answer" hidden>
+
+                            <p>
+
+                                Only use approved photos and stories
+                                in alignment with program consent
+                                procedures, privacy expectations,
+                                research protocols, and copyright
+                                requirements.
+
+                            </p>
+
+
+                            <button
+                                type="button"
+                                data-modal-content="photoPolicy"
+                            >
+
+                                View photo & copyright guidance
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="faq-item reveal">
+
+                        <h3>
+
+                            <button
+                                type="button"
+                                class="faq-question"
+                                aria-expanded="false"
+                            >
+
+                                What should a new visitor understand
+                                about Heads Up?
+
+                                <span aria-hidden="true">
+                                    +
+                                </span>
+
+                            </button>
+
+                        </h3>
+
+
+                        <div class="faq-answer" hidden>
+
+                            <p>
+
+                                Heads Up is a relationship-driven space
+                                supporting academic learning, emotional
+                                well-being, social development, cultural
+                                understanding, and community belonging.
+
+                            </p>
+
+
+                            <a href="#about">
+                                Read the program overview
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
+
+        <section
+            class="contact-section section-spacing"
+            id="contact"
+            aria-labelledby="contactTitle"
+        >
+
+            <div class="section-shell">
+
+                <div class="section-heading section-heading--center reveal">
+
+                    <p class="section-tag">
+                        Contact Heads Up
+                    </p>
+
+
+                    <h2 id="contactTitle">
+
+                        Questions, support,
+                        and community communication.
+
+                    </h2>
+
+
+                    <p>
+
+                        Contact information is intentionally clear,
+                        repeated, and easy to reach because families
+                        and participants identified communication as
+                        one of the website’s most important functions.
+
+                    </p>
+
+                </div>
+
+
+                <div class="contact-wrapper">
+
+                    <!-- =============================================
+                         CONTACT INFORMATION
+                    ============================================== -->
+
+                    <div class="contact-left reveal">
+
+                        <div class="contact-info-card">
+
+                            <span class="contact-info-card__icon">
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-mail"></use>
+
+                                </svg>
+
+                            </span>
+
+
+                            <div>
+
+                                <small>
+                                    Email
+                                </small>
+
+
+                                <a href="mailto:placeholder@email.com">
+
+                                    placeholder@email.com
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-info-card">
+
+                            <span class="contact-info-card__icon">
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-phone"></use>
+
+                                </svg>
+
+                            </span>
+
+
+                            <div>
+
+                                <small>
+                                    Program phone
+                                </small>
+
+
+                                <a href="tel:+10000000000">
+
+                                    (000) 000-0000
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-info-card">
+
+                            <span class="contact-info-card__icon">
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-pin"></use>
+
+                                </svg>
+
+                            </span>
+
+
+                            <div>
+
+                                <small>
+                                    Location
+                                </small>
+
+
+                                <span>
+
+                                    Placeholder Address,
+                                    Lafayette, Indiana
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-info-card">
+
+                            <span class="contact-info-card__icon">
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-clock"></use>
+
+                                </svg>
+
+                            </span>
+
+
+                            <div>
+
+                                <small>
+                                    Program hours
+                                </small>
+
+
+                                <span>
+                                    Placeholder operating hours
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-emergency-card">
+
+                            <div>
+
+                                <span
+                                    class="emergency-pulse"
+                                    aria-hidden="true"
+                                ></span>
+
+
+                                <strong>
+                                    Urgent program concern
+                                </strong>
+
+
+                                <p>
+
+                                    Use the approved emergency number
+                                    for time-sensitive, program-related
+                                    concerns.
+
+                                </p>
+
+                            </div>
+
+
+                            <a
+                                class="emergency-call-button"
+                                href="tel:+10000000000"
+                            >
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-phone"></use>
+
+                                </svg>
+
+                                Call emergency contact
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =============================================
+                         CONTACT FORM
+
+                         This static-site form opens the visitor's
+                         email application with the completed message.
+                    ============================================== -->
+
+                    <form
+                        class="contact-form reveal"
+                        id="contactForm"
+                        data-recipient="placeholder@email.com"
+                        novalidate
+                    >
+
+                        <div class="form-heading">
+
+                            <span>
+                                Send a message
+                            </span>
+
+
+                            <h3>
+                                How can we help?
+                            </h3>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-field">
+
+                                <label for="contactName">
+                                    Full name
+                                </label>
+
+
+                                <input
+                                    id="contactName"
+                                    name="name"
+                                    type="text"
+                                    autocomplete="name"
+                                    required
+                                >
+
+
+                                <small
+                                    class="field-error"
+                                    id="contactNameError"
+                                ></small>
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="contactEmail">
+                                    Email address
+                                </label>
+
+
+                                <input
+                                    id="contactEmail"
+                                    name="email"
+                                    type="email"
+                                    autocomplete="email"
+                                    required
+                                >
+
+
+                                <small
+                                    class="field-error"
+                                    id="contactEmailError"
+                                ></small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="contactAudience">
+
+                                I am contacting Heads Up as a...
+
+                            </label>
+
+
+                            <select
+                                id="contactAudience"
+                                name="audience"
+                            >
+
+                                <option value="Parent or guardian">
+                                    Parent or guardian
+                                </option>
+
+                                <option value="Student or family member">
+                                    Student or family member
+                                </option>
+
+                                <option value="Volunteer or mentor">
+                                    Volunteer or mentor
+                                </option>
+
+                                <option value="Researcher">
+                                    Researcher
+                                </option>
+
+                                <option value="Community partner">
+                                    Community partner
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="contactSubject">
+                                Subject
+                            </label>
+
+
+                            <input
+                                id="contactSubject"
+                                name="subject"
+                                type="text"
+                                required
+                            >
+
+
+                            <small
+                                class="field-error"
+                                id="contactSubjectError"
+                            ></small>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="contactMessage">
+                                Message
+                            </label>
+
+
+                            <textarea
+                                id="contactMessage"
+                                name="message"
+                                rows="7"
+                                required
+                            ></textarea>
+
+
+                            <small
+                                class="field-error"
+                                id="contactMessageError"
+                            ></small>
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                type="submit"
+                                class="button button--primary"
+                            >
+
+                                Send message
+
+                                <svg aria-hidden="true">
+
+                                    <use href="#icon-arrow"></use>
+
+                                </svg>
+
+                            </button>
+
+
+                            <p>
+
+                                Your email application will open with
+                                the completed message. Replace the
+                                placeholder email before publishing.
+
+                            </p>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="main-footer">
+
+        <div class="footer-top section-shell">
+
+            <div class="footer-brand">
+
+                <a
+                    href="#home"
+                    class="footer-logo-link"
+                >
+
+                    <span class="logo-frame logo-frame--footer">
+
+                        <img
+                            src="logo.png"
+                            alt="Heads Up logo"
+                        >
+
+                    </span>
+
+
+                    <span>
+
+                        <strong>
+                            Heads Up
+                        </strong>
+
+                        <small>
+                            Afterschool Program
+                        </small>
+
+                    </span>
+
+                </a>
+
+
+                <p>
+
+                    Creating welcoming, supportive, and engaging
+                    learning experiences through community,
+                    mentorship, collaboration, and care.
+
+                </p>
+
+
+                <div class="footer-contact-row">
+
+                    <a href="tel:+10000000000">
+
+                        (000) 000-0000
+
+                    </a>
+
+
+                    <a href="mailto:placeholder@email.com">
+
+                        placeholder@email.com
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>
+                    Explore
+                </h3>
+
+                <a href="#about">About</a>
+
+                <a href="#programs">Programs</a>
+
+                <a href="#gallery">Gallery</a>
+
+                <a href="#stories">Stories</a>
+
+                <a href="#team">Team</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>
+                    Information
+                </h3>
+
+                <a href="#updates">Weekly updates</a>
+
+                <a href="#events">Events & schedule</a>
+
+                <a href="#portal">Family Portal</a>
+
+                <a href="#resources">Resources</a>
+
+                <a href="#faq">Frequently asked questions</a>
+
+                <a href="#contact">Contact</a>
+
+            </div>
+
+
+            <div class="footer-newsletter">
+
+                <h3>
+                    Stay in the loop
+                </h3>
+
+
+                <p>
+
+                    Use this form as a future newsletter sign-up
+                    or replace it with the program’s approved
+                    mailing-list service.
+
+                </p>
+
+
+                <form
+                    id="newsletterForm"
+                    data-recipient="placeholder@email.com"
+                >
+
+                    <label
+                        class="sr-only"
+                        for="newsletterEmail"
+                    >
+                        Email address
+                    </label>
+
+
+                    <input
+                        id="newsletterEmail"
+                        type="email"
+                        placeholder="Email address"
+                        required
+                    >
+
+
+                    <button
+                        type="submit"
+                        aria-label="Subscribe to updates"
+                    >
+
+                        <svg aria-hidden="true">
+
+                            <use href="#icon-arrow"></use>
+
+                        </svg>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             SOCIAL MEDIA & COMMUNITY CONNECTIONS
+
+             Replace the generic URLs with approved official
+             Heads Up social media profile URLs before publishing.
+        ====================================================== -->
+
+        <div class="footer-social-strip section-shell">
+
+            <div class="footer-social-strip__intro">
+
+                <p class="footer-social-strip__eyebrow">
+                    Join the community online
+                </p>
+
+                <h3>
+                    Follow program updates, approved highlights,
+                    events, and community stories.
+                </h3>
+
+                <p>
+                    Only share consent-approved photos, stories, and
+                    program information. Replace these links with the
+                    official Heads Up accounts before publishing.
+                </p>
+
+            </div>
+
+
+            <div class="social-platform-grid" aria-label="Heads Up social media links">
+
+                <a href="https://www.facebook.com/" class="social-platform social-platform--facebook" target="_blank" rel="noopener noreferrer" aria-label="Visit Heads Up on Facebook, opens in a new tab">
+                    <span class="social-platform__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v6h4v-6h3.2l.8-4H13V9c0-.7.3-1 1-1Z"></path></svg>
+                    </span>
+                    <span><strong>Facebook</strong><small>Family news & events</small></span>
+                    <span class="social-platform__arrow" aria-hidden="true">↗</span>
+                </a>
+
+                <a href="https://www.instagram.com/" class="social-platform social-platform--instagram" target="_blank" rel="noopener noreferrer" aria-label="Visit Heads Up on Instagram, opens in a new tab">
+                    <span class="social-platform__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+                    </span>
+                    <span><strong>Instagram</strong><small>Activities & highlights</small></span>
+                    <span class="social-platform__arrow" aria-hidden="true">↗</span>
+                </a>
+
+                <a href="https://www.linkedin.com/" class="social-platform social-platform--linkedin" target="_blank" rel="noopener noreferrer" aria-label="Visit Heads Up on LinkedIn, opens in a new tab">
+                    <span class="social-platform__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M8 10v7M8 7.5v.01M12 17v-4a3 3 0 0 1 6 0v4M12 10v7"></path></svg>
+                    </span>
+                    <span><strong>LinkedIn</strong><small>Research & partnerships</small></span>
+                    <span class="social-platform__arrow" aria-hidden="true">↗</span>
+                </a>
+
+                <a href="https://www.youtube.com/" class="social-platform social-platform--youtube" target="_blank" rel="noopener noreferrer" aria-label="Visit Heads Up on YouTube, opens in a new tab">
+                    <span class="social-platform__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M21 8.2a3 3 0 0 0-2.1-2.1C17 5.5 12 5.5 12 5.5s-5 0-6.9.6A3 3 0 0 0 3 8.2 31 31 0 0 0 2.5 12 31 31 0 0 0 3 15.8a3 3 0 0 0 2.1 2.1c1.9.6 6.9.6 6.9.6s5 0 6.9-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-3.8 31 31 0 0 0-.5-3.8Z"></path><path d="m10 9 5 3-5 3Z"></path></svg>
+                    </span>
+                    <span><strong>YouTube</strong><small>Approved program videos</small></span>
+                    <span class="social-platform__arrow" aria-hidden="true">↗</span>
+                </a>
+
+                <a href="https://www.tiktok.com/" class="social-platform social-platform--tiktok" target="_blank" rel="noopener noreferrer" aria-label="Visit Heads Up on TikTok, opens in a new tab">
+                    <span class="social-platform__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M15 4v10.5a4.5 4.5 0 1 1-4-4.47"></path><path d="M15 4c.7 2.2 2.3 3.8 4.5 4.5"></path></svg>
+                    </span>
+                    <span><strong>TikTok</strong><small>Short approved moments</small></span>
+                    <span class="social-platform__arrow" aria-hidden="true">↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom section-shell">
+
+            <p>
+
+                ©
+                <span id="currentYear">2026</span>
+                Heads Up Afterschool Program.
+                Community-centered • Research-informed • Accessible.
+
+            </p>
+
+
+            <div>
+
+                <button
+                    type="button"
+                    data-modal-content="privacy"
+                >
+                    Privacy
+                </button>
+
+
+                <button
+                    type="button"
+                    data-modal-content="photoPolicy"
+                >
+                    Photo use
+                </button>
+
+
+                <button
+                    type="button"
+                    data-modal-content="accessibility"
+                >
+                    Accessibility
+                </button>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         MOBILE QUICK NAVIGATION DOCK
+
+         Visible only on small screens. This keeps the most commonly
+         requested destinations available without opening the menu.
+    ========================================================== -->
+
+    <nav class="mobile-quick-dock" id="mobileQuickDock" aria-label="Mobile quick navigation">
+
+        <a href="#home" class="mobile-quick-dock__item">
+            <svg aria-hidden="true"><use href="#icon-home"></use></svg>
+            <span>Home</span>
+        </a>
+
+        <a href="#updates" class="mobile-quick-dock__item">
+            <svg aria-hidden="true"><use href="#icon-calendar"></use></svg>
+            <span>Updates</span>
+        </a>
+
+        <a href="#events" class="mobile-quick-dock__item">
+            <svg aria-hidden="true"><use href="#icon-clock"></use></svg>
+            <span>Schedule</span>
+        </a>
+
+        <a href="#contact" class="mobile-quick-dock__item">
+            <svg aria-hidden="true"><use href="#icon-mail"></use></svg>
+            <span>Contact</span>
+        </a>
+
+    </nav>
+
+
+    <!-- =========================================================
+         FLOATING QUICK HELP
+    ========================================================== -->
+
+    <div
+        class="floating-actions"
+        id="floatingActions"
+    >
+
+        <button
+            class="floating-actions__toggle"
+            id="floatingActionsToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="floatingActionsMenu"
+        >
+
+            <svg aria-hidden="true">
+
+                <use href="#icon-message"></use>
+
+            </svg>
+
+            <span>
+                Quick help
+            </span>
+
+        </button>
+
+
+        <div
+            class="floating-actions__menu"
+            id="floatingActionsMenu"
+            hidden
+        >
+
+            <a href="#updates">
+
+                <svg aria-hidden="true">
+
+                    <use href="#icon-calendar"></use>
+
+                </svg>
+
+                Updates
+
+            </a>
+
+
+            <a href="#events">
+
+                <svg aria-hidden="true">
+
+                    <use href="#icon-clock"></use>
+
+                </svg>
+
+                Schedule
+
+            </a>
+
+
+            <a href="#contact">
+
+                <svg aria-hidden="true">
+
+                    <use href="#icon-mail"></use>
+
+                </svg>
+
+                Contact
+
+            </a>
+
+
+            <a
+                href="tel:+10000000000"
+                class="floating-actions__emergency"
+            >
+
+                <svg aria-hidden="true">
+
+                    <use href="#icon-phone"></use>
+
+                </svg>
+
+                Emergency
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         BACK TO TOP
+    ========================================================== -->
+
+    <button
+        class="back-to-top"
+        id="backToTop"
+        type="button"
+        aria-label="Return to the top of the page"
+    >
+
+        <svg aria-hidden="true">
+
+            <use href="#icon-arrow"></use>
+
+        </svg>
+
+    </button>
+
+
+    <!-- =========================================================
+         ACCESSIBLE MODAL
+    ========================================================== -->
+
+    <div
+        class="modal"
+        id="siteModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalBody"
+        hidden
+    >
+
+        <div
+            class="modal__backdrop"
+            data-close-modal
+        ></div>
+
+
+        <div
+            class="modal__dialog"
+            role="document"
+        >
+
+            <button
+                class="modal__close"
+                type="button"
+                aria-label="Close dialog"
+                data-close-modal
+            >
+
+                <svg aria-hidden="true">
+
+                    <use href="#icon-close"></use>
+
+                </svg>
+
+            </button>
+
+
+            <p
+                class="modal__eyebrow"
+                id="modalEyebrow"
+            >
+                Heads Up
+            </p>
+
+
+            <h2 id="modalTitle">
+                Information
+            </h2>
+
+
+            <div
+                class="modal__body"
+                id="modalBody"
+            ></div>
+
+
+            <div
+                class="modal__actions"
+                id="modalActions"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         STATUS / TOAST MESSAGE AREA
+    ========================================================== -->
+
+    <div
+        class="toast-region"
+        id="toastRegion"
+        aria-live="polite"
+        aria-atomic="true"
+    ></div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
