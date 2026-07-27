@@ -163,7 +163,7 @@ const HEADS_UP_CONFIG = Object.freeze({
        Leave blank only while actively testing with a running local server.
     */
     authRedirectUrl:
-        "http://127.0.0.1:5500/index.html",
+        "https://headsupweb-ops.github.io/Heads-Up-Website/",
 
     /* Public-safe events only. Leave blank until approved. */
     publicGoogleCalendarEmbedUrl:
