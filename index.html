@@ -3,7 +3,7 @@
 <head> 
     <!-- =========================================================
          HEADS UP AFTERSCHOOL PROGRAM
-         Main single-page website shell 
+         Original website preserved with lightweight page routing and secure portal 
 
          FILES USED:
          - index.html
@@ -47,6 +47,7 @@
     >
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="public-ready.css">
 </head>
 
 <body>
@@ -476,21 +477,21 @@
                     ></span>
 
                     <strong>
-                        Emergency contact:
+                        Program support:
                     </strong>
 
                     <a
-                        href="tel:+10000000000"
+                        href="#contact"
                         class="emergency-phone"
                     >
 
                         <svg aria-hidden="true">
 
-                            <use href="#icon-phone"></use>
+                            <use href="#icon-mail"></use>
 
                         </svg>
 
-                        (000) 000-0000
+                        Contact the program
 
                     </a>
 
@@ -499,7 +500,7 @@
 
                 <div class="emergency-bar__secondary">
 
-                    <a href="mailto:placeholder@email.com">
+                    <a href="#contact">
 
                         <svg aria-hidden="true">
 
@@ -507,7 +508,7 @@
 
                         </svg>
 
-                        placeholder@email.com
+                        headsupweb@gmail.com
 
                     </a>
 
@@ -663,6 +664,20 @@
                             role="menu"
                         >
 
+
+                            <a
+                                href="#parents"
+                                role="menuitem"
+                            >
+                                Parents
+                            </a>
+
+                            <a
+                                href="#volunteer"
+                                role="menuitem"
+                            >
+                                Volunteer With Us
+                            </a>
                             <a
                                 href="#gallery"
                                 role="menuitem"
@@ -808,6 +823,24 @@
                     </a>
 
 
+                    <a href="#parents">
+
+                        <span>03A</span>
+
+                        Parents
+
+                    </a>
+
+
+                    <a href="#volunteer">
+
+                        <span>03B</span>
+
+                        Volunteer With Us
+
+                    </a>
+
+
                     <a href="#updates">
 
                         <span>04</span>
@@ -894,12 +927,12 @@
                 <div class="mobile-nav__emergency">
 
                     <strong>
-                        Need urgent program help?
+                        Need program assistance?
                     </strong>
 
-                    <a href="tel:+10000000000">
+                    <a href="#contact">
 
-                        Call (000) 000-0000
+                        Call Contact the program
 
                     </a>
 
@@ -1318,6 +1351,8 @@
 
         <section
             class="action-ribbon"
+            id="quickAccess"
+            data-home-only
             aria-label="Popular website destinations"
         >
 
@@ -2509,7 +2544,39 @@
 
             </div>
 
-        </section>
+        
+                    <div class="public-calendar-panel reveal" id="publicCalendarPanel">
+
+                        <div class="public-calendar-panel__copy">
+
+                            <p class="card-kicker">
+                                Public-safe Google Calendar
+                            </p>
+
+                            <h3>
+                                Only intentionally public events belong here.
+                            </h3>
+
+                            <p>
+                                Exact student schedules, protected locations,
+                                family-only events, and private meeting links
+                                remain inside the Family Portal.
+                            </p>
+
+                        </div>
+
+                        <div class="public-calendar-frame" id="publicCalendarFrame">
+
+                            <p id="publicCalendarMessage">
+                                Add an approved public Google Calendar embed URL
+                                in script.js to display public events.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+</section>
 
 
 
@@ -2522,12 +2589,18 @@
              not be public on the open internet.
         ====================================================== -->
 
-        <section
-            class="portal-section section-spacing"
-            id="portal"
-            aria-labelledby="portalTitle"
-        >
+        
+        <!-- =====================================================
+             PARENTS PAGE VIEW
+             This remains inside index.html and behaves like a page
+             through the lightweight hash router.
+        ====================================================== -->
 
+        <section
+            class="parents-section section-spacing"
+            id="parents"
+            aria-labelledby="parentsTitle"
+        >
             <div class="section-shell">
 
                 <div class="section-heading section-heading--split reveal">
@@ -2535,133 +2608,667 @@
                     <div>
 
                         <p class="section-tag">
-                            Family Portal
+                            Parents & Guardians
                         </p>
 
-
-                        <h2 id="portalTitle">
-                            Private schedule access for families and approved team members.
+                        <h2 id="parentsTitle">
+                            Clear expectations, supportive communication,
+                            and a welcoming place for every family.
                         </h2>
 
                     </div>
 
-
                     <p>
-                        The public website should welcome visitors, explain the program, and make contact easy. Details such as exact meeting times, locations, student updates, and private announcements should be shared only through approved access.
+                        Families should be able to understand the program,
+                        know what participation feels like, and reach the
+                        right person without searching through private or
+                        child-specific information.
                     </p>
 
                 </div>
 
 
-                <div class="portal-grid">
+                <div class="family-expect-grid">
 
-                    <article class="portal-card portal-card--primary reveal">
+                    <article class="family-expect-card reveal">
 
-                        <div class="portal-card__icon" aria-hidden="true">
-
-                            <svg>
-
-                                <use href="#icon-lock"></use>
-
-                            </svg>
-
-                        </div>
-
-
-                        <p class="card-kicker">
-                            Recommended solution
-                        </p>
-
+                        <span class="family-expect-card__number">01</span>
 
                         <h3>
-                            Use a real login system before publishing private details.
+                            Start with a conversation
                         </h3>
 
-
                         <p>
-                            For the final live website, connect this portal button to an authenticated service such as Firebase Authentication, Supabase Auth, Google Workspace, Netlify Identity, or another approved organization login. The frontend should request private updates from a protected backend after a verified user signs in.
+                            Use the contact form to ask about participation,
+                            accessibility, transportation, learning support,
+                            or the Family Portal.
                         </p>
 
+                    </article>
 
-                        <ul class="portal-checklist">
 
-                            <li>
-                                <svg aria-hidden="true"><use href="#icon-check"></use></svg>
-                                Keep exact times and locations out of public HTML, CSS, and JavaScript.
-                            </li>
+                    <article class="family-expect-card reveal">
 
-                            <li>
-                                <svg aria-hidden="true"><use href="#icon-check"></use></svg>
-                                Share private schedules only with approved parents, guardians, volunteers, staff, and researchers.
-                            </li>
+                        <span class="family-expect-card__number">02</span>
 
-                            <li>
-                                <svg aria-hidden="true"><use href="#icon-check"></use></svg>
-                                Continue using the public site for mission, contact, stories, resources, and general program updates.
-                            </li>
+                        <h3>
+                            Receive approved next steps
+                        </h3>
+
+                        <p>
+                            Program staff confirm eligibility, expectations,
+                            required forms, and the safest way to share
+                            schedule information.
+                        </p>
+
+                    </article>
+
+
+                    <article class="family-expect-card reveal">
+
+                        <span class="family-expect-card__number">03</span>
+
+                        <h3>
+                            Meet mentors and the community
+                        </h3>
+
+                        <p>
+                            Mentors support students through encouragement,
+                            homework help, exploration, reflection, and
+                            relationship-centered guidance.
+                        </p>
+
+                    </article>
+
+
+                    <article class="family-expect-card reveal">
+
+                        <span class="family-expect-card__number">04</span>
+
+                        <h3>
+                            Use the private portal
+                        </h3>
+
+                        <p>
+                            Approved families sign in for exact schedules,
+                            locations, family announcements, and private
+                            community links.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <div class="family-support-panel reveal">
+
+                    <div>
+
+                        <p class="card-kicker">
+                            What families can expect
+                        </p>
+
+                        <h3>
+                            Respect, encouragement, consistency, and privacy.
+                        </h3>
+
+                        <p>
+                            Public pages explain the mission, activities,
+                            volunteer expectations, and ways to connect.
+                            Exact locations, child-related updates, attendance
+                            information, and family-only announcements remain
+                            behind approved access.
+                        </p>
+
+                    </div>
+
+                    <div class="family-support-panel__actions">
+
+                        <a class="button button--primary" href="#portal">
+                            Request or use portal access
+                        </a>
+
+                        <a class="button button--secondary" href="#contact">
+                            Contact Heads Up
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             VOLUNTEER WITH US PAGE VIEW
+        ====================================================== -->
+
+        <section
+            class="volunteer-section section-spacing"
+            id="volunteer"
+            aria-labelledby="volunteerTitle"
+        >
+            <div class="section-shell">
+
+                <div class="section-heading section-heading--split reveal">
+
+                    <div>
+
+                        <p class="section-tag">
+                            Volunteer With Us!
+                        </p>
+
+                        <h2 id="volunteerTitle">
+                            Encourage students, support learning,
+                            and help strengthen the community.
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Volunteers and mentors help create a dependable,
+                        welcoming environment. Every role follows the same
+                        safety, privacy, communication, and consistency
+                        expectations.
+                    </p>
+
+                </div>
+
+
+                <div class="volunteer-layout">
+
+                    <article class="volunteer-main-card reveal">
+
+                        <p class="card-kicker">
+                            The volunteer role
+                        </p>
+
+                        <h3>
+                            Be a reliable, encouraging adult presence.
+                        </h3>
+
+                        <p>
+                            Volunteers may help with homework, small-group
+                            activities, STEM exploration, creative projects,
+                            shared meals, family events, setup, cleanup, and
+                            supportive conversation.
+                        </p>
+
+                        <h4>
+                            Core responsibilities
+                        </h4>
+
+                        <ul class="volunteer-checklist">
+
+                            <li>Arrive prepared and communicate schedule changes early.</li>
+                            <li>Follow staff direction and approved supervision procedures.</li>
+                            <li>Use inclusive, respectful, age-appropriate language.</li>
+                            <li>Protect student, family, research, and location information.</li>
+                            <li>Never post names, photos, stories, or private details without approval.</li>
+                            <li>Report safety concerns through the approved program process.</li>
 
                         </ul>
 
                     </article>
 
 
-                    <article class="portal-card reveal">
+                    <div class="volunteer-side-stack">
 
-                        <p class="card-kicker">
-                            Portal sign-in placeholder
+                        <article class="volunteer-info-card reveal">
+
+                            <p class="card-kicker">
+                                Requirements
+                            </p>
+
+                            <ul>
+                                <li>Complete the program application and review.</li>
+                                <li>Complete required screening or training.</li>
+                                <li>Agree to privacy and conduct expectations.</li>
+                                <li>Use approved communication channels.</li>
+                                <li>Maintain dependable participation.</li>
+                            </ul>
+
+                        </article>
+
+
+                        <article class="volunteer-info-card reveal">
+
+                            <p class="card-kicker">
+                                Onboarding process
+                            </p>
+
+                            <ol>
+                                <li>Submit an interest message.</li>
+                                <li>Speak with an approved program contact.</li>
+                                <li>Complete required forms and screening.</li>
+                                <li>Attend orientation.</li>
+                                <li>Receive role-specific portal access when appropriate.</li>
+                            </ol>
+
+                        </article>
+
+
+                        <article class="volunteer-info-card volunteer-info-card--action reveal">
+
+                            <p class="card-kicker">
+                                Ready to begin?
+                            </p>
+
+                            <h3>
+                                Tell us how you would like to help.
+                            </h3>
+
+                            <a
+                                class="button button--primary"
+                                href="#contact"
+                                data-prefill-subject="Volunteer With Us application"
+                            >
+                                Start a volunteer inquiry
+                            </a>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- =====================================================
+             SECURE FAMILY PORTAL
+             Supabase Auth + administrator approval + RLS
+        ====================================================== -->
+
+        <section
+            class="portal-section section-spacing"
+            id="portal"
+            aria-labelledby="portalTitle"
+        >
+            <div class="section-shell">
+
+                <div class="section-heading section-heading--split reveal">
+
+                    <div>
+
+                        <p class="section-tag">
+                            Private Family Portal
                         </p>
 
+                        <h2 id="portalTitle">
+                            Secure access for approved families,
+                            volunteers, staff, and program partners.
+                        </h2>
 
-                        <h3>
-                            Frontend access preview
-                        </h3>
+                    </div>
 
+                    <p>
+                        Exact schedules, locations, family announcements,
+                        protected links, and approved private updates are
+                        loaded only after Supabase verifies the user and
+                        confirms that an administrator approved the account.
+                    </p>
+
+                </div>
+
+
+                <div class="portal-security-note reveal">
+
+                    <svg aria-hidden="true">
+                        <use href="#icon-shield"></use>
+                    </svg>
+
+                    <div>
+
+                        <strong>
+                            Private details are not stored in this public webpage.
+                        </strong>
 
                         <p>
-                            This form is a design placeholder only. It shows how the Family Portal can look, but it is not a secure login by itself. Replace it with the approved authentication system before posting private program details.
+                            Passwords are handled by Supabase Auth. Protected
+                            content remains in database tables secured with
+                            Row Level Security.
                         </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="portal-grid portal-grid--working">
+
+                    <article class="portal-card portal-card--primary reveal">
+
+                        <div class="portal-card__icon" aria-hidden="true">
+
+                            <svg>
+                                <use href="#icon-lock"></use>
+                            </svg>
+
+                        </div>
+
+                        <p class="card-kicker">
+                            How access works
+                        </p>
+
+                        <h3>
+                            Individual accounts—not a shared website PIN.
+                        </h3>
+
+                        <ol class="portal-steps">
+
+                            <li>Request an account using your own email.</li>
+                            <li>Confirm the verification email from Supabase.</li>
+                            <li>Wait for an approved administrator to review the request.</li>
+                            <li>Sign in to view only the private information allowed for your role.</li>
+
+                        </ol>
+
+                        <p class="portal-small-note">
+                            A shared rotating PIN is not used because it can
+                            be forwarded and cannot be revoked for one person.
+                        </p>
+
+                    </article>
+
+
+                    <article class="portal-card portal-auth-card reveal">
+
+                        <div class="portal-auth-tabs" role="tablist" aria-label="Portal access options">
+
+                            <button
+                                class="portal-auth-tab is-active"
+                                type="button"
+                                role="tab"
+                                aria-selected="true"
+                                data-portal-tab="signin"
+                            >
+                                Sign in
+                            </button>
+
+                            <button
+                                class="portal-auth-tab"
+                                type="button"
+                                role="tab"
+                                aria-selected="false"
+                                data-portal-tab="request"
+                            >
+                                Request access
+                            </button>
+
+                            <button
+                                class="portal-auth-tab"
+                                type="button"
+                                role="tab"
+                                aria-selected="false"
+                                data-portal-tab="reset"
+                            >
+                                Reset password
+                            </button>
+
+                        </div>
 
 
                         <form
-                            class="portal-login-form"
-                            id="portalLoginForm"
+                            class="portal-login-form portal-auth-panel"
+                            id="portalSignInForm"
+                            data-portal-panel="signin"
                         >
 
-                            <label for="portalEmail">
-                                Email
-                            </label>
+                            <div class="form-field">
+
+                                <label for="portalSignInEmail">
+                                    Email address
+                                </label>
+
+                                <input
+                                    id="portalSignInEmail"
+                                    name="email"
+                                    type="email"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
 
 
-                            <input
-                                id="portalEmail"
-                                name="portalEmail"
-                                type="email"
-                                placeholder="family@example.com"
-                                autocomplete="email"
-                                required
-                            >
+                            <div class="form-field">
+
+                                <label for="portalSignInPassword">
+                                    Password
+                                </label>
+
+                                <div class="password-field">
+
+                                    <input
+                                        id="portalSignInPassword"
+                                        name="password"
+                                        type="password"
+                                        autocomplete="current-password"
+                                        required
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="password-toggle"
+                                        data-password-toggle="portalSignInPassword"
+                                        aria-label="Show password"
+                                    >
+                                        Show
+                                    </button>
+
+                                </div>
+
+                            </div>
 
 
-                            <label for="portalAccessCode">
-                                Access code
-                            </label>
-
-
-                            <input
-                                id="portalAccessCode"
-                                name="portalAccessCode"
-                                type="password"
-                                placeholder="Development preview code"
-                                autocomplete="current-password"
-                                required
-                            >
+                            <button class="button button--primary portal-submit" type="submit">
+                                Sign in securely
+                            </button>
 
 
                             <button
-                                type="submit"
-                                class="button button--primary"
+                                class="portal-text-button"
+                                id="portalMagicLinkButton"
+                                type="button"
                             >
-                                Preview portal access
+                                Email me a secure sign-in link instead
+                            </button>
+
+                        </form>
+
+
+                        <form
+                            class="portal-login-form portal-auth-panel"
+                            id="portalRequestAccessForm"
+                            data-portal-panel="request"
+                            hidden
+                        >
+
+                            <div class="form-field">
+
+                                <label for="portalRequestName">
+                                    Full name
+                                </label>
+
+                                <input
+                                    id="portalRequestName"
+                                    name="fullName"
+                                    type="text"
+                                    autocomplete="name"
+                                    maxlength="100"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="portalRequestEmail">
+                                    Email address
+                                </label>
+
+                                <input
+                                    id="portalRequestEmail"
+                                    name="email"
+                                    type="email"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="portalRequestRole">
+                                    Relationship to Heads Up
+                                </label>
+
+                                <select id="portalRequestRole" name="role" required>
+
+                                    <option value="family">Parent, guardian, or approved family member</option>
+                                    <option value="volunteer">Volunteer or mentor applicant</option>
+                                    <option value="staff">Staff member</option>
+                                    <option value="researcher">Approved researcher or partner</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="portalRequestReason">
+                                    Why are you requesting access?
+                                </label>
+
+                                <textarea
+                                    id="portalRequestReason"
+                                    name="reason"
+                                    rows="4"
+                                    maxlength="600"
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="portalRequestPassword">
+                                    Create a password
+                                </label>
+
+                                <div class="password-field">
+
+                                    <input
+                                        id="portalRequestPassword"
+                                        name="password"
+                                        type="password"
+                                        autocomplete="new-password"
+                                        minlength="10"
+                                        required
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="password-toggle"
+                                        data-password-toggle="portalRequestPassword"
+                                        aria-label="Show password"
+                                    >
+                                        Show
+                                    </button>
+
+                                </div>
+
+                                <small>
+                                    Use at least 10 characters and do not reuse a school or work password.
+                                </small>
+
+                            </div>
+
+
+                            <label class="portal-consent">
+
+                                <input name="consent" type="checkbox" required>
+
+                                <span>
+                                    I understand that access is reviewed,
+                                    limited to approved members, and may be
+                                    suspended when no longer needed.
+                                </span>
+
+                            </label>
+
+
+                            <button class="button button--primary portal-submit" type="submit">
+                                Submit access request
+                            </button>
+
+                        </form>
+
+
+                        <form
+                            class="portal-login-form portal-auth-panel"
+                            id="portalResetPasswordForm"
+                            data-portal-panel="reset"
+                            hidden
+                        >
+
+                            <div class="form-field">
+
+                                <label for="portalResetEmail">
+                                    Account email
+                                </label>
+
+                                <input
+                                    id="portalResetEmail"
+                                    name="email"
+                                    type="email"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+                            <button class="button button--primary portal-submit" type="submit">
+                                Send password-reset email
+                            </button>
+
+                        </form>
+
+
+                        <form
+                            class="portal-login-form portal-auth-panel"
+                            id="portalNewPasswordForm"
+                            data-portal-panel="new-password"
+                            hidden
+                        >
+
+                            <div class="form-field">
+
+                                <label for="portalNewPassword">
+                                    New password
+                                </label>
+
+                                <input
+                                    id="portalNewPassword"
+                                    name="password"
+                                    type="password"
+                                    autocomplete="new-password"
+                                    minlength="10"
+                                    required
+                                >
+
+                            </div>
+
+                            <button class="button button--primary portal-submit" type="submit">
+                                Save new password
                             </button>
 
                         </form>
@@ -2673,48 +3280,64 @@
                             role="status"
                             aria-live="polite"
                         >
-
-                            Private details are hidden until approved access is connected.
-
+                            Sign in or request approved access.
                         </div>
 
                     </article>
 
 
-                    <article class="portal-card portal-card--soft reveal">
+                    <article
+                        class="portal-card portal-card--soft portal-dashboard reveal"
+                        id="portalDashboard"
+                        hidden
+                    >
 
-                        <p class="card-kicker">
-                            What belongs where
-                        </p>
-
-
-                        <h3>
-                            Public website vs. private portal
-                        </h3>
-
-
-                        <div class="portal-table">
+                        <div class="portal-dashboard__header">
 
                             <div>
-                                <strong>Public website</strong>
-                                <span>Mission, general program overview, contact, approved stories, resources, volunteer interest, and broad updates.</span>
+
+                                <p class="card-kicker">
+                                    Signed-in account
+                                </p>
+
+                                <h3 id="portalDashboardTitle">
+                                    Portal status
+                                </h3>
+
+                                <p id="portalProfileSummary"></p>
+
                             </div>
 
-
-                            <div>
-                                <strong>Private portal</strong>
-                                <span>Exact schedules, locations, attendance details, child-specific updates, internal documents, and approved family notices.</span>
-                            </div>
+                            <button
+                                class="button button--secondary"
+                                id="portalSignOutButton"
+                                type="button"
+                            >
+                                Sign out
+                            </button>
 
                         </div>
+
+
+                        <div
+                            class="portal-approval-banner"
+                            id="portalApprovalBanner"
+                        ></div>
+
+
+                        <div
+                            class="private-content-list"
+                            id="privateContentList"
+                            aria-live="polite"
+                        ></div>
 
                     </article>
 
                 </div>
 
             </div>
-
         </section>
+
 
 
         <!-- Existing Events link anchor retained for compatibility. -->
@@ -3035,10 +3658,12 @@
 
                 <p class="gallery-note">
 
-                    Use only photos with appropriate permission.
-                    Replace the image files in the
-                    <code>images</code>
-                    folder while keeping the same filenames.
+                    Display only photographs that Jiya and the program
+                    have selected and documented as approved. Confirm
+                    permission for every identifiable participant, then
+                    add accurate alternative text, a caption, and ownership
+                    or copyright information before replacing files in the
+                    <code>images</code> folder.
 
                 </p>
 
@@ -4056,9 +4681,9 @@
                                 </small>
 
 
-                                <a href="mailto:placeholder@email.com">
+                                <a href="#contact">
 
-                                    placeholder@email.com
+                                    headsupweb@gmail.com
 
                                 </a>
 
@@ -4087,9 +4712,9 @@
                                 </small>
 
 
-                                <a href="tel:+10000000000">
+                                <a href="#contact">
 
-                                    (000) 000-0000
+                                    Contact the program
 
                                 </a>
 
@@ -4120,8 +4745,7 @@
 
                                 <span>
 
-                                    Placeholder Address,
-                                    Lafayette, Indiana
+                                    Exact location shared privately
 
                                 </span>
 
@@ -4151,7 +4775,7 @@
 
 
                                 <span>
-                                    Placeholder operating hours
+                                    Schedule shared with approved families
                                 </span>
 
                             </div>
@@ -4176,9 +4800,10 @@
 
                                 <p>
 
-                                    Use the approved emergency number
-                                    for time-sensitive, program-related
-                                    concerns.
+                                    Use the secure contact form for
+                                    time-sensitive program concerns.
+                                    For immediate danger, contact local
+                                    emergency services.
 
                                 </p>
 
@@ -4187,7 +4812,7 @@
 
                             <a
                                 class="emergency-call-button"
-                                href="tel:+10000000000"
+                                href="#contact"
                             >
 
                                 <svg aria-hidden="true">
@@ -4196,7 +4821,7 @@
 
                                 </svg>
 
-                                Call emergency contact
+                                Open contact form
 
                             </a>
 
@@ -4208,14 +4833,14 @@
                     <!-- =============================================
                          CONTACT FORM
 
-                         This static-site form opens the visitor's
-                         email application with the completed message.
+                         Sends through the Supabase Edge Function.
+                         It does not open Outlook or another email app.
                     ============================================== -->
 
                     <form
                         class="contact-form reveal"
                         id="contactForm"
-                        data-recipient="placeholder@email.com"
+                        data-function="send-message"
                         novalidate
                     >
 
@@ -4230,6 +4855,18 @@
                                 How can we help?
                             </h3>
 
+                        </div>
+
+
+                        <div class="form-field form-field--honeypot" aria-hidden="true">
+                            <label for="contactWebsite">Leave this field empty</label>
+                            <input
+                                id="contactWebsite"
+                                name="website"
+                                type="text"
+                                tabindex="-1"
+                                autocomplete="off"
+                            >
                         </div>
 
 
@@ -4394,13 +5031,20 @@
 
                             <p>
 
-                                Your email application will open with
-                                the completed message. Replace the
-                                placeholder email before publishing.
+                                Your message is sent securely through
+                                this website to headsupweb@gmail.com.
+                                Outlook or another email app will not open.
 
                             </p>
 
                         </div>
+
+                        <div
+                            class="form-submit-status"
+                            id="contactFormStatus"
+                            role="status"
+                            aria-live="polite"
+                        ></div>
 
                     </form>
 
@@ -4464,16 +5108,16 @@
 
                 <div class="footer-contact-row">
 
-                    <a href="tel:+10000000000">
+                    <a href="#contact">
 
-                        (000) 000-0000
+                        Contact the program
 
                     </a>
 
 
-                    <a href="mailto:placeholder@email.com">
+                    <a href="#contact">
 
-                        placeholder@email.com
+                        headsupweb@gmail.com
 
                     </a>
 
@@ -4540,7 +5184,7 @@
 
                 <form
                     id="newsletterForm"
-                    data-recipient="placeholder@email.com"
+                    data-function="send-message"
                 >
 
                     <label
@@ -4718,9 +5362,9 @@
             <span>Updates</span>
         </a>
 
-        <a href="#events" class="mobile-quick-dock__item">
-            <svg aria-hidden="true"><use href="#icon-clock"></use></svg>
-            <span>Schedule</span>
+        <a href="#portal" class="mobile-quick-dock__item">
+            <svg aria-hidden="true"><use href="#icon-lock"></use></svg>
+            <span>Portal</span>
         </a>
 
         <a href="#contact" class="mobile-quick-dock__item">
@@ -4807,7 +5451,7 @@
 
 
             <a
-                href="tel:+10000000000"
+                href="#contact"
                 class="floating-actions__emergency"
             >
 
@@ -4932,7 +5576,9 @@
          JAVASCRIPT
     ========================================================== -->
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
+    <script src="public-ready.js"></script>
 
 </body>
 </html>
