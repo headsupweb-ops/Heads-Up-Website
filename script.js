@@ -10204,7 +10204,7 @@ initializeAccessReviewFromEmail();
         const aboutIntro = $("#about .section-heading--split > p");
         if (aboutIntro) {
             aboutIntro.textContent =
-                "Heads Up brings tutoring, mentoring, hands-on learning, and community connection together in one supportive environment. Every activity is designed to help students feel welcomed, capable, curious, and connected.";
+                "Heads Up is a place to be you. No matter who you are, you belong here. We want you to show up as your authentic self, ready to laugh, learn, and share what makes you unique. Our mentors are more like guides and teammates. We are here to support your goals, help you work through tricky problems, and cheer you on as you grow and succeed.";
         }
 
         const aboutGrid = $("#about .about-grid");
