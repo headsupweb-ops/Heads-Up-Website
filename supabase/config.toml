@@ -1,0 +1,7 @@
+# Public website message endpoint.
+[functions.send-message]
+verify_jwt = false
+
+# Public one-time-token review endpoint used by Gmail approval links.
+[functions.review-access]
+verify_jwt = false
