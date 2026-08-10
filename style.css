@@ -24119,3 +24119,1454 @@ L14593: completes the current CSS property value.
 L14594: closes the current CSS declaration block.
 L14596: closes the current CSS declaration block.
 */
+
+/* =====================================================================
+   HEADS UP VERSION UPDATE — LARGER HEADER LOGO, FULL ARTWORK VISIBLE
+   =====================================================================
+   This patch changes ONLY the top-left header logo presentation.
+
+   The supplied logo is a wide image. To make the program mark larger
+   without clipping it, this version:
+   - preserves the logo's natural wide aspect ratio;
+   - increases both width and height proportionally;
+   - removes nearly all inner frame padding;
+   - keeps object-fit: contain;
+   - explicitly removes image transforms so no edge of the logo is cropped;
+   - keeps the existing main-header heights unchanged on desktop and phone.
+
+   Footer logo, navigation, portal, contact, mobile drawer, quick dock,
+   authentication, email workflows, calendar tools, and all other layout
+   remain unchanged.
+   ===================================================================== */
+
+.main-header .logo-frame {
+
+    /*
+       Desktop:
+       9.30 / 4.75 ≈ 1.958, almost identical to the supplied logo's
+       natural 493 / 252 ≈ 1.956 aspect ratio.
+    */
+    width:
+        9.3rem;
+
+    height:
+        4.75rem;
+
+    flex:
+        0 0 9.3rem;
+
+    /*
+       Minimal padding lets the full artwork use more of the existing
+       frame without changing the top-bar height.
+    */
+    padding:
+        0.04rem;
+
+}
+
+
+.main-header .logo-image,
+.main-header .logo-frame img {
+
+    /*
+       Keep every edge of the supplied logo visible.
+       No zoom transform is used, so the artwork cannot be clipped by
+       the frame's existing overflow: hidden behavior.
+    */
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        contain;
+
+    object-position:
+        center;
+
+    transform:
+        none !important;
+
+}
+
+
+@media (max-width: 1260px) {
+
+    .main-header .logo-frame {
+
+        /*
+           Tablet / collapsed-navigation size.
+           The header remains 5.25rem tall exactly as before.
+        */
+        width:
+            8.7rem;
+
+        height:
+            4.45rem;
+
+        flex:
+            0 0 8.7rem;
+
+        padding:
+            0.04rem;
+
+    }
+
+}
+
+
+@media (max-width: 720px) {
+
+    .main-header .logo-frame {
+
+        /*
+           Phone size.
+           The logo is larger than the former 7rem x 3.6rem treatment,
+           but remains comfortably inside the existing 4.85rem header.
+        */
+        width:
+            7.9rem;
+
+        height:
+            4.04rem;
+
+        flex:
+            0 0 7.9rem;
+
+        padding:
+            0.035rem;
+
+    }
+
+}
+
+/* =====================================================================
+   HEADS UP VERSION UPDATE — LARGE HOME-PAGE BRAND LOCKUP
+   =====================================================================
+   Professional logo solution:
+   - The existing sticky-header logo remains completely unchanged.
+   - A larger version of the same official logo is added to the HOME hero.
+   - This creates a strong program identity without making the navigation
+     bar taller or crowding desktop/mobile navigation.
+   - The logo scales responsively and always uses object-fit: contain, so
+     the complete artwork remains visible.
+   ===================================================================== */
+
+.hero-brand-lockup {
+
+    /* Keep the brand mark aligned with the existing left hero content. */
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    /* Large enough to clearly identify the program on first view. */
+    width:
+        clamp(15.5rem, 22vw, 21rem);
+
+    max-width:
+        100%;
+
+    margin-bottom:
+        1rem;
+
+    /* A restrained presentation keeps the supplied white logo professional. */
+    border-radius:
+        1.15rem;
+
+    filter:
+        drop-shadow(0 14px 26px rgba(0, 74, 173, 0.12));
+
+}
+
+
+.hero-brand-lockup__image {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    max-height:
+        10.75rem;
+
+    object-fit:
+        contain;
+
+    object-position:
+        left center;
+
+}
+
+
+/* Keep the current hero eyebrow directly connected to the larger logo. */
+.hero-brand-lockup + .hero-eyebrow {
+
+    margin-top:
+        0;
+
+}
+
+
+@media (max-width: 1260px) {
+
+    .hero-brand-lockup {
+
+        width:
+            clamp(14rem, 34vw, 19rem);
+
+    }
+
+}
+
+
+@media (max-width: 720px) {
+
+    .hero-brand-lockup {
+
+        /*
+           On phones, center the program mark above the existing hero copy.
+           It remains large without affecting the sticky navigation bar.
+        */
+        display:
+            flex;
+
+        width:
+            min(17rem, 82vw);
+
+        margin-right:
+            auto;
+
+        margin-bottom:
+            0.9rem;
+
+        margin-left:
+            auto;
+
+    }
+
+
+    .hero-brand-lockup__image {
+
+        object-position:
+            center;
+
+    }
+
+}
+
+/* =====================================================================
+   HERO LOGO POLISH UPDATE
+   ---------------------------------------------------------------------
+   Purpose:
+   - Keep the larger homepage logo
+   - Make it feel intentionally designed instead of looking like a plain
+     pasted image box
+   - Preserve the existing top header exactly as-is
+   - Use only subtle, professional motion
+   ===================================================================== */
+
+.hero-brand-lockup {
+
+    position:
+        relative;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        clamp(15.5rem, 22vw, 21rem);
+
+    max-width:
+        100%;
+
+    margin-bottom:
+        1.15rem;
+
+    padding:
+        1rem 1rem 0.85rem;
+
+    border-radius:
+        1.55rem;
+
+    border:
+        1px solid rgba(77, 148, 166, 0.22);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.96) 0%,
+            rgba(247, 251, 255, 0.98) 55%,
+            rgba(240, 250, 247, 0.96) 100%
+        );
+
+    box-shadow:
+        0 20px 46px rgba(0, 74, 173, 0.10),
+        0 8px 18px rgba(77, 148, 166, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+    backdrop-filter:
+        blur(8px);
+
+    overflow:
+        hidden;
+
+    animation:
+        heroLogoFloat 7s ease-in-out infinite;
+
+}
+
+
+/* Soft highlight glow behind the card */
+.hero-brand-lockup::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        -10%;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(237, 180, 41, 0.15),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 82% 18%,
+            rgba(77, 148, 166, 0.16),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(76, 135, 43, 0.10),
+            transparent 32%
+        );
+
+    pointer-events:
+        none;
+
+    z-index:
+        0;
+
+}
+
+
+/* A very subtle sheen makes it feel designed, not distracting */
+.hero-brand-lockup::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        -120%;
+
+    width:
+        58%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.42) 48%,
+            transparent 100%
+        );
+
+    transform:
+        skewX(-18deg);
+
+    opacity:
+        0.55;
+
+    pointer-events:
+        none;
+
+    z-index:
+        1;
+
+    animation:
+        heroLogoSheen 11s ease-in-out infinite;
+
+}
+
+
+.hero-brand-lockup__image {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    max-height:
+        10.75rem;
+
+    object-fit:
+        contain;
+
+    object-position:
+        center center;
+
+    filter:
+        drop-shadow(0 8px 18px rgba(0, 74, 173, 0.08));
+
+}
+
+
+.hero-brand-lockup + .hero-eyebrow {
+
+    margin-top:
+        0;
+
+}
+
+
+/* Slow, minimal float animation */
+@keyframes heroLogoFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0px);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-6px);
+
+    }
+
+}
+
+
+/* Very infrequent and soft shimmer */
+@keyframes heroLogoSheen {
+
+    0%,
+    70%,
+    100% {
+
+        left:
+            -125%;
+        opacity:
+            0;
+
+    }
+
+    78% {
+
+        opacity:
+            0.35;
+
+    }
+
+    90% {
+
+        left:
+            145%;
+        opacity:
+            0.12;
+
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-brand-lockup,
+    .hero-brand-lockup::after {
+
+        animation:
+            none !important;
+
+    }
+
+}
+
+
+@media (max-width: 1260px) {
+
+    .hero-brand-lockup {
+
+        width:
+            clamp(14rem, 34vw, 19rem);
+
+    }
+
+}
+
+
+@media (max-width: 720px) {
+
+    .hero-brand-lockup {
+
+        display:
+            flex;
+
+        width:
+            min(17rem, 82vw);
+
+        margin-right:
+            auto;
+
+        margin-bottom:
+            0.95rem;
+
+        margin-left:
+            auto;
+
+        padding:
+            0.9rem 0.9rem 0.75rem;
+
+        border-radius:
+            1.35rem;
+
+    }
+
+
+    .hero-brand-lockup__image {
+
+        object-position:
+            center;
+
+    }
+
+}
+
+/* =====================================================================
+   HERO LOGO SMOOTH PROFESSIONAL REFINEMENT
+   ---------------------------------------------------------------------
+   Purpose:
+   - Keep the large homepage logo and overall placement exactly as-is
+   - Make the presentation feel smoother, softer, and more refined
+   - Reduce the "boxed pasted image" feeling
+   - Keep motion subtle and professional
+   ===================================================================== */
+
+.hero-brand-lockup {
+
+    position:
+        relative;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        clamp(15.5rem, 22vw, 21rem);
+
+    max-width:
+        100%;
+
+    margin-bottom:
+        1.2rem;
+
+    padding:
+        1.1rem 1.15rem 0.95rem;
+
+    border-radius:
+        1.65rem;
+
+    border:
+        1px solid rgba(77, 148, 166, 0.16);
+
+    background:
+        linear-gradient(
+            155deg,
+            rgba(255, 255, 255, 0.94) 0%,
+            rgba(252, 253, 255, 0.975) 48%,
+            rgba(245, 251, 251, 0.95) 100%
+        );
+
+    box-shadow:
+        0 18px 42px rgba(0, 74, 173, 0.08),
+        0 8px 18px rgba(77, 148, 166, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+    backdrop-filter:
+        blur(10px);
+
+    overflow:
+        hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+
+    animation:
+        heroLogoDrift 8s ease-in-out infinite;
+
+}
+
+
+/* Soft ambient glow */
+.hero-brand-lockup::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        -8%;
+
+    background:
+        radial-gradient(
+            circle at 18% 22%,
+            rgba(237, 180, 41, 0.10),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 82% 16%,
+            rgba(77, 148, 166, 0.11),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(76, 135, 43, 0.08),
+            transparent 28%
+        );
+
+    pointer-events:
+        none;
+
+    z-index:
+        0;
+
+    opacity:
+        0.95;
+
+}
+
+
+/* Very soft top glow strip */
+.hero-brand-lockup::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        12%;
+
+    width:
+        76%;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.9) 50%,
+            transparent 100%
+        );
+
+    opacity:
+        0.95;
+
+    pointer-events:
+        none;
+
+    z-index:
+        1;
+
+}
+
+
+.hero-brand-lockup__image {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    max-height:
+        10.8rem;
+
+    object-fit:
+        contain;
+
+    object-position:
+        center center;
+
+    filter:
+        drop-shadow(0 7px 16px rgba(0, 74, 173, 0.05));
+
+}
+
+
+/* Keep this subtle and calm */
+@keyframes heroLogoDrift {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0px);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-4px);
+
+    }
+
+}
+
+
+.hero-brand-lockup:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 22px 46px rgba(0, 74, 173, 0.095),
+        0 9px 22px rgba(77, 148, 166, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
+
+    border-color:
+        rgba(77, 148, 166, 0.22);
+
+}
+
+
+/* Make the logo feel integrated into the hero instead of floating alone */
+.hero-brand-lockup + .hero-eyebrow {
+
+    margin-top:
+        0.15rem;
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-brand-lockup {
+
+        animation:
+            none !important;
+
+        transition:
+            none !important;
+
+    }
+
+}
+
+
+@media (max-width: 1260px) {
+
+    .hero-brand-lockup {
+
+        width:
+            clamp(14rem, 34vw, 19rem);
+
+    }
+
+}
+
+
+@media (max-width: 720px) {
+
+    .hero-brand-lockup {
+
+        display:
+            flex;
+
+        width:
+            min(16.5rem, 82vw);
+
+        margin-right:
+            auto;
+
+        margin-bottom:
+            1rem;
+
+        margin-left:
+            auto;
+
+        padding:
+            1rem 1rem 0.82rem;
+
+        border-radius:
+            1.4rem;
+
+    }
+
+}
+
+/* =====================================================================
+   HERO LOGO — SEAMLESS BACKGROUND INTEGRATION
+   ---------------------------------------------------------------------
+   Purpose:
+   - Keep the large homepage logo exactly where it is.
+   - Remove visible rectangular/card edges.
+   - Visually merge the white PNG background into the hero background.
+   - Preserve a subtle, professional floating effect.
+   - Leave every other website component untouched.
+   ===================================================================== */
+
+.hero-brand-lockup {
+
+    /*
+       Remove the card treatment completely so the logo no longer appears
+       to sit inside a separate white box.
+    */
+    background:
+        transparent;
+
+    border:
+        0;
+
+    box-shadow:
+        none;
+
+    backdrop-filter:
+        none;
+
+    padding:
+        0.25rem;
+
+    border-radius:
+        0;
+
+    overflow:
+        visible;
+
+    /*
+       Keep the motion restrained: only a few pixels over a long cycle.
+    */
+    animation:
+        heroLogoSeamlessFloat 8.5s ease-in-out infinite;
+
+    transition:
+        transform 0.35s ease;
+
+}
+
+
+/*
+   Replace the previous card glow with a feathered aura.
+   It has no rectangular boundary and softly fades into the hero.
+*/
+.hero-brand-lockup::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        -18% -14%;
+
+    z-index:
+        -1;
+
+    pointer-events:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(77, 148, 166, 0.10) 0%,
+            rgba(237, 180, 41, 0.055) 38%,
+            rgba(76, 135, 43, 0.03) 58%,
+            transparent 76%
+        );
+
+    filter:
+        blur(22px);
+
+    opacity:
+        0.9;
+
+}
+
+
+/* Remove the former hard highlight / sheen layer. */
+.hero-brand-lockup::after {
+
+    content:
+        none;
+
+    display:
+        none;
+
+}
+
+
+/*
+   KEY DETAIL:
+   The source PNG has a white canvas. On this very light hero background,
+   multiply treats white as visually neutral, allowing the page background
+   to show through while preserving the colored Heads Up artwork.
+*/
+.hero-brand-lockup__image {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    mix-blend-mode:
+        multiply;
+
+    background:
+        transparent;
+
+    filter:
+        drop-shadow(0 10px 18px rgba(0, 74, 173, 0.055));
+
+    transform:
+        translateZ(0);
+
+}
+
+
+/*
+   Minimal movement: enough to feel alive, not enough to distract.
+*/
+@keyframes heroLogoSeamlessFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translate3d(0, 0, 0);
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(0, -3px, 0);
+
+    }
+
+}
+
+
+/*
+   The hover remains understated and does not reintroduce a card.
+*/
+.hero-brand-lockup:hover {
+
+    box-shadow:
+        none;
+
+    border-color:
+        transparent;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/*
+   Respect reduced-motion preferences.
+*/
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-brand-lockup {
+
+        animation:
+            none !important;
+
+        transform:
+            none !important;
+
+    }
+
+}
+
+
+/*
+   Keep the same current responsive logo sizing.
+*/
+@media (max-width: 720px) {
+
+    .hero-brand-lockup {
+
+        padding:
+            0.15rem;
+
+    }
+
+}
+
+/* =====================================================================
+   HERO LOGO — ROUNDED, SEAMLESS, AMBIENT PROFESSIONAL PRESENTATION
+   ---------------------------------------------------------------------
+   Scope:
+   - Changes ONLY the large logo inside the HOME hero.
+   - Does NOT change the sticky header, header logo, navigation,
+     authentication, portal, contact, calendar, or mobile systems.
+
+   Design goals:
+   - Rounded edges instead of a hard rectangular image boundary.
+   - Soft background tones that match the Heads Up page.
+   - Feather the PNG canvas into the hero so the white edge is less visible.
+   - Very subtle floating / ambient movement.
+   - Respect reduced-motion accessibility preferences.
+   ===================================================================== */
+
+.hero-brand-lockup {
+
+    position:
+        relative;
+
+    isolation:
+        isolate;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        clamp(15.5rem, 22vw, 21rem);
+
+    max-width:
+        100%;
+
+    margin-bottom:
+        1.2rem;
+
+    /*
+       A small amount of breathing room gives the rounded edge a deliberate
+       visual finish without making the logo look like a heavy card.
+    */
+    padding:
+        0.55rem;
+
+    border-radius:
+        1.7rem;
+
+    /*
+       The surface borrows the same soft blue / cream / teal family already
+       used throughout the Heads Up page, so the logo feels embedded in the
+       hero rather than pasted on top of it.
+    */
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 253, 247, 0.48) 0%,
+            rgba(239, 248, 253, 0.52) 52%,
+            rgba(232, 248, 245, 0.46) 100%
+        );
+
+    border:
+        1px solid rgba(77, 148, 166, 0.12);
+
+    box-shadow:
+        0 18px 44px rgba(0, 74, 173, 0.065),
+        0 7px 18px rgba(77, 148, 166, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.66);
+
+    backdrop-filter:
+        blur(7px);
+
+    overflow:
+        hidden;
+
+    /*
+       Slow and small: enough to feel alive, not enough to distract.
+    */
+    animation:
+        headsUpHeroLogoFloat 10s ease-in-out infinite;
+
+    transition:
+        transform 280ms ease,
+        box-shadow 280ms ease,
+        border-color 280ms ease;
+
+}
+
+
+/*
+   A soft brand-colored aura lives behind the logo.
+   It has no visible rectangular edge and slowly breathes.
+*/
+.hero-brand-lockup::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        -24%;
+
+    z-index:
+        -1;
+
+    border-radius:
+        50%;
+
+    pointer-events:
+        none;
+
+    background:
+        radial-gradient(
+            circle at 24% 28%,
+            rgba(237, 180, 41, 0.12),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 78% 22%,
+            rgba(77, 148, 166, 0.14),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 48% 82%,
+            rgba(76, 135, 43, 0.08),
+            transparent 36%
+        );
+
+    filter:
+        blur(26px);
+
+    opacity:
+        0.75;
+
+    animation:
+        headsUpHeroLogoAura 14s ease-in-out infinite alternate;
+
+}
+
+
+/*
+   Keep the edge treatment minimal. There is no moving sheen or hard
+   highlight strip because that made the image boundary more noticeable.
+*/
+.hero-brand-lockup::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    z-index:
+        2;
+
+    border-radius:
+        inherit;
+
+    pointer-events:
+        none;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+
+}
+
+
+/*
+   The logo image itself keeps the full artwork visible.
+   The mask softly fades only the outside edge of the source PNG canvas,
+   which helps the white background dissolve into the rounded hero surface.
+*/
+.hero-brand-lockup__image {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    max-height:
+        10.8rem;
+
+    object-fit:
+        contain;
+
+    object-position:
+        center center;
+
+    border-radius:
+        1.3rem;
+
+    background:
+        transparent;
+
+    mix-blend-mode:
+        multiply;
+
+    filter:
+        saturate(1.015)
+        contrast(1.01)
+        drop-shadow(0 9px 17px rgba(0, 74, 173, 0.045));
+
+    /*
+       Feather the source image's outer canvas instead of showing a hard
+       white rectangle. Both prefixed and standard properties are provided.
+    */
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse at center,
+            #000 0%,
+            #000 77%,
+            rgba(0, 0, 0, 0.98) 84%,
+            rgba(0, 0, 0, 0.78) 93%,
+            transparent 100%
+        );
+
+    mask-image:
+        radial-gradient(
+            ellipse at center,
+            #000 0%,
+            #000 77%,
+            rgba(0, 0, 0, 0.98) 84%,
+            rgba(0, 0, 0, 0.78) 93%,
+            transparent 100%
+        );
+
+}
+
+
+/* Calm float: only 3px of travel over a 10-second cycle. */
+@keyframes headsUpHeroLogoFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translate3d(0, 0, 0);
+
+    }
+
+    50% {
+
+        transform:
+            translate3d(0, -3px, 0);
+
+    }
+
+}
+
+
+/* Slow aura breathing; intentionally subtle. */
+@keyframes headsUpHeroLogoAura {
+
+    0% {
+
+        opacity:
+            0.58;
+
+        transform:
+            translate3d(-1%, 1%, 0)
+            scale(0.98);
+
+    }
+
+    100% {
+
+        opacity:
+            0.82;
+
+        transform:
+            translate3d(1%, -1%, 0)
+            scale(1.03);
+
+    }
+
+}
+
+
+/*
+   Hover adds only a tiny lift and slightly cleaner shadow.
+   It intentionally avoids a dramatic animation.
+*/
+.hero-brand-lockup:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(77, 148, 166, 0.18);
+
+    box-shadow:
+        0 21px 48px rgba(0, 74, 173, 0.075),
+        0 8px 20px rgba(77, 148, 166, 0.055),
+        inset 0 1px 0 rgba(255, 255, 255, 0.70);
+
+}
+
+
+/*
+   Keep the existing program-name eyebrow connected to the logo.
+*/
+.hero-brand-lockup + .hero-eyebrow {
+
+    margin-top:
+        0.15rem;
+
+}
+
+
+/* Accessibility: remove all ambient motion when requested by the user. */
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-brand-lockup,
+    .hero-brand-lockup::before {
+
+        animation:
+            none !important;
+
+        transform:
+            none !important;
+
+    }
+
+
+    .hero-brand-lockup {
+
+        transition:
+            none !important;
+
+    }
+
+}
+
+
+/* Keep the current tablet sizing. */
+@media (max-width: 1260px) {
+
+    .hero-brand-lockup {
+
+        width:
+            clamp(14rem, 34vw, 19rem);
+
+    }
+
+}
+
+
+/* Keep the current phone sizing and center the logo naturally. */
+@media (max-width: 720px) {
+
+    .hero-brand-lockup {
+
+        display:
+            flex;
+
+        width:
+            min(16.5rem, 82vw);
+
+        margin-right:
+            auto;
+
+        margin-bottom:
+            1rem;
+
+        margin-left:
+            auto;
+
+        padding:
+            0.42rem;
+
+        border-radius:
+            1.45rem;
+
+    }
+
+
+    .hero-brand-lockup__image {
+
+        border-radius:
+            1.12rem;
+
+    }
+
+}
+
