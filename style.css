@@ -25570,3 +25570,74 @@ L14596: closes the current CSS declaration block.
 
 }
 
+/* =====================================================================
+   HEADS UP VERSION UPDATE — DESKTOP HERO LOGO MOVED TO RIGHT
+   =====================================================================
+   Scope:
+   - Changes ONLY the large HOME hero logo's visual position on computers.
+   - The logo now sits above the right-side "Learn / Explore / Belong / Grow"
+     community visual.
+   - The logo remains in normal document flow, so the existing left-side hero
+     text retains its current spacing and does not jump upward.
+   - Tablet and phone layouts are NOT changed.
+
+   Technical approach:
+   - position: relative keeps the element's original layout space.
+   - left visually moves only the logo across the two-column desktop grid.
+   - The existing transform-based ambient float animation still works because
+     this patch does not replace its transform animation.
+   ===================================================================== */
+
+@media (min-width: 981px) {
+
+    .hero-brand-lockup {
+
+        /*
+           Keep the current rounded / ambient logo treatment and move only
+           its visual position into the right-hand hero column.
+        */
+        position:
+            relative;
+
+        left:
+            calc(
+                100%
+                + clamp(7.5rem, 8.5vw, 11.5rem)
+            );
+
+        /*
+           Make sure the brand mark sits above the interactive puzzle pieces
+           without disabling any of those links.
+        */
+        z-index:
+            6;
+
+        /*
+           The logo is informational, so pointer interactions pass through
+           to the right-side hero controls underneath if necessary.
+        */
+        pointer-events:
+            none;
+
+    }
+
+}
+
+
+/*
+   Preserve the existing tablet / mobile placement exactly.
+*/
+@media (max-width: 980px) {
+
+    .hero-brand-lockup {
+
+        left:
+            auto;
+
+        pointer-events:
+            auto;
+
+    }
+
+}
+
