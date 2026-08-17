@@ -18,9 +18,13 @@
 // Required secrets:
 //   RESEND_API_KEY
 //   TO_EMAIL=headsupweb@gmail.com
-//   FROM_EMAIL=Heads Up Website <onboarding@resend.dev>
-//   REVIEW_PAGE_URL=https://YOUR-SITE.example/index.html
-//   ALLOWED_ORIGINS=http://127.0.0.1:5500,https://YOUR-SITE.example
+//   FROM_EMAIL=Heads Up Website <website@headsupgl.org>
+//   REVIEW_PAGE_URL=https://headsupgl.org/
+//   ALLOWED_ORIGINS=https://headsupgl.org,https://www.headsupgl.org
+//
+// 2026-08-17 CUSTOM DOMAIN UPDATE:
+// Verify headsupgl.org in Resend, set these Supabase secrets to the values
+// above, and redeploy this function. Secrets remain server-side.
 //
 // Supabase provides SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.
 // Never place any secret above in browser JavaScript.
@@ -35,15 +39,19 @@ const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") ?? "";
 const TO_EMAIL = Deno.env.get("TO_EMAIL") ?? "headsupweb@gmail.com";
 const FROM_EMAIL =
   Deno.env.get("FROM_EMAIL") ??
-  "Heads Up Website <onboarding@resend.dev>";
-const REVIEW_PAGE_URL = Deno.env.get("REVIEW_PAGE_URL") ?? "";
+  "Heads Up Website <website@headsupgl.org>";
+const REVIEW_PAGE_URL =
+  Deno.env.get("REVIEW_PAGE_URL") ?? "https://headsupgl.org/";
 
 const REVIEW_LINK_TTL_HOURS = Math.min(
   Math.max(Number(Deno.env.get("REVIEW_LINK_TTL_HOURS") ?? "48"), 1),
   168,
 );
 
-const allowedOrigins = (Deno.env.get("ALLOWED_ORIGINS") ?? "")
+const allowedOrigins = (
+  Deno.env.get("ALLOWED_ORIGINS") ??
+  "https://headsupgl.org,https://www.headsupgl.org"
+)
   .split(",")
   .map((value) => value.trim().replace(/\/$/, ""))
   .filter(Boolean);
