@@ -70,6 +70,14 @@
    resourceLibrary      Resource modal content
    teamLibrary          Team modal content
    ===================================================================== */
+
+/* =====================================================================
+   2026-08-17 CORE LAB CONTENT + CUSTOM DOMAIN UPDATE
+   =====================================================================
+   Existing behavior is preserved. Focused additions below support the
+   headsupgl.org redirect, three requested program panels, revised volunteer
+   and team content, and reliable Stories-to-Contact form routing.
+   ===================================================================== */
 /* =============================================================
    HEADS UP AFTERSCHOOL PROGRAM
    script.js
@@ -171,11 +179,11 @@ const HEADS_UP_CONFIG = Object.freeze({
 
     /*
        Optional live redirect used by verification and password-reset emails.
-       Example: "https://your-site.netlify.app/#portal"
+       Live domain: "https://headsupgl.org/#portal"
        Leave blank only while actively testing with a running local server.
     */
     authRedirectUrl:
-        "https://headsupweb-ops.github.io/Heads-Up-Website/",
+        "https://headsupgl.org/",
 
     /* Public-safe events only. Leave blank until approved. */
     publicGoogleCalendarEmbedUrl:
@@ -1161,6 +1169,115 @@ const contentLibrary = {
 
             }
 
+        ]
+
+    },
+
+
+    /*
+       2026-08-17 PROGRAM MODALS:
+       These keys support the new Team Mentor Program and Tutoring panels.
+       Earlier modal definitions remain below so unrelated code is preserved.
+    */
+    mentor: {
+
+        eyebrow:
+            "Program activity",
+
+        title:
+            "Team Mentor Program",
+
+        body:
+            `
+                <p>
+                    The Team Mentor Program connects students with dependable
+                    volunteers and mentors who listen, encourage participation,
+                    and help lead group activities and presentations.
+                </p>
+
+                <h3>
+                    What students may experience
+                </h3>
+
+                <ul>
+                    <li>Consistent relationships with caring adults</li>
+                    <li>Small-group activities and shared presentations</li>
+                    <li>Encouragement, questions, and practical guidance</li>
+                    <li>Opportunities to explore new interests and skills</li>
+                    <li>Positive teamwork with volunteers and peers</li>
+                </ul>
+            `,
+
+        actions: [
+            {
+                label:
+                    "Volunteer with Heads Up",
+
+                href:
+                    "#volunteer",
+
+                primary:
+                    true
+            },
+            {
+                label:
+                    "Ask about mentoring",
+
+                prefill:
+                    "Team Mentor Program question"
+            }
+        ]
+
+    },
+
+
+    tutoring: {
+
+        eyebrow:
+            "Program activity",
+
+        title:
+            "Tutoring",
+
+        body:
+            `
+                <p>
+                    Tutoring provides individual and small-group academic
+                    support so students can work through assignments, strengthen
+                    skills, and build confidence as independent learners.
+                </p>
+
+                <h3>
+                    Tutoring support includes
+                </h3>
+
+                <ul>
+                    <li>Focused help with current assignments</li>
+                    <li>Practice with academic and study skills</li>
+                    <li>Questions explained with patience and encouragement</li>
+                    <li>Support adapted to the student's learning needs</li>
+                    <li>Confidence-building through steady progress</li>
+                </ul>
+            `,
+
+        actions: [
+            {
+                label:
+                    "Ask a tutoring question",
+
+                prefill:
+                    "Tutoring question",
+
+                primary:
+                    true
+            },
+            {
+                label:
+                    "Contact Heads Up",
+
+                href:
+                    "#contact"
+            }
         ]
 
     },
@@ -2209,6 +2326,110 @@ const teamLibrary = {
 
             }
 
+        ]
+
+    },
+
+
+    /*
+       2026-08-17 TEAM MODALS:
+       The visible team cards now use Program Leadership, Mentors, and
+       Homework Helpers & Tutors. Older modal keys remain for compatibility.
+    */
+    mentors: {
+
+        eyebrow:
+            "Mentors",
+
+        title:
+            "Relationships, guidance, and encouragement",
+
+        body:
+            `
+                <p>
+                    Mentors listen, encourage curiosity, share experience,
+                    and help students feel supported as they learn and grow.
+                </p>
+
+                <h3>How mentors support students</h3>
+
+                <ul>
+                    <li>Build dependable, respectful relationships</li>
+                    <li>Encourage questions, effort, and participation</li>
+                    <li>Guide group activities and presentations</li>
+                    <li>Share practical experience and new perspectives</li>
+                    <li>Follow program privacy, safety, and communication expectations</li>
+                </ul>
+            `,
+
+        actions: [
+            {
+                label:
+                    "Volunteer With Us",
+
+                href:
+                    "#volunteer",
+
+                primary:
+                    true
+            },
+            {
+                label:
+                    "Close",
+
+                close:
+                    true
+            }
+        ]
+
+    },
+
+
+    tutors: {
+
+        eyebrow:
+            "Homework Helpers & Tutors",
+
+        title:
+            "Skill-building and academic confidence",
+
+        body:
+            `
+                <p>
+                    Homework helpers and tutors work alongside students on
+                    assignments and academic skills while encouraging confidence,
+                    persistence, and increasing independence.
+                </p>
+
+                <h3>How tutors support students</h3>
+
+                <ul>
+                    <li>Help students understand current assignments</li>
+                    <li>Explain ideas with patience and age-appropriate language</li>
+                    <li>Practice study, organization, and problem-solving skills</li>
+                    <li>Celebrate progress without taking over the student's work</li>
+                    <li>Communicate reliably with program leadership</li>
+                </ul>
+            `,
+
+        actions: [
+            {
+                label:
+                    "Ask about tutoring",
+
+                prefill:
+                    "Homework helper or tutoring question",
+
+                primary:
+                    true
+            },
+            {
+                label:
+                    "Close",
+
+                close:
+                    true
+            }
         ]
 
     },
@@ -6583,6 +6804,46 @@ function prefillContactForm(
     closeModal();
 
 
+    /*
+       2026-08-17 SUBMIT STORY FIX:
+       The site uses page-style hash routing, so Contact may be hidden while
+       the Stories page is active. Reveal the Contact route before scrolling
+       or focusing; this also fixes every other data-prefill-subject action.
+    */
+    const contactRoute =
+
+        "#contact";
+
+
+    if (
+
+        window.location.hash === contactRoute
+
+    ) {
+
+        if (
+
+            typeof renderRoute === "function"
+
+        ) {
+
+            renderRoute(
+
+                contactRoute
+
+            );
+
+        }
+
+    } else {
+
+        window.location.hash =
+
+            contactRoute;
+
+    }
+
+
     contactSubject.value =
 
         subject;
@@ -6603,22 +6864,22 @@ function prefillContactForm(
     }
 
 
-    scrollToElement(
-
-        select("#contact")
-
-    );
-
-
     window.setTimeout(
 
         () => {
+
+            scrollToElement(
+
+                select("#contact")
+
+            );
+
 
             contactName?.focus();
 
         },
 
-        500
+        120
 
     );
 
@@ -10257,7 +10518,7 @@ initializeAccessReviewFromEmail();
 
         setText(
             ".day-at-heads-up__intro > p:last-child",
-            "A typical program day balances connection, academic support, hands-on activities, community time, and reflection."
+            "Children connect, receive skill support, learn with volunteers and peers, and take part in shared activities at Homework Club."
         );
 
         setText(
@@ -10385,7 +10646,7 @@ initializeAccessReviewFromEmail();
         const teamIntro = $("#team .section-heading--split > p");
         if (teamIntro) {
             teamIntro.textContent =
-                "Program leadership, mentors, volunteers, and community partners work together to create a dependable and encouraging student experience.";
+                "Meet the program leadership, mentors, and homework helpers and tutors who support students each week.";
         }
 
         const teamCards = $$("#team .team-card");
@@ -10398,14 +10659,14 @@ initializeAccessReviewFromEmail();
                 paragraph.textContent =
                     "Program leaders guide daily operations, family communication, student safety, partnerships, and the long-term direction of Heads Up.";
                 image?.setAttribute("aria-label", "Heads Up program leadership illustration");
-            } else if (/research|community-centered/i.test(heading) && paragraph) {
+            } else if (/mentor|relationship/i.test(heading) && paragraph) {
                 paragraph.textContent =
-                    "Community feedback and responsible research help Heads Up improve activities, communication, accessibility, and family engagement.";
-                image?.setAttribute("aria-label", "Heads Up community learning illustration");
+                    "Mentors listen, encourage curiosity, share experience, and help students feel supported as they learn and grow.";
+                image?.setAttribute("aria-label", "Heads Up mentor illustration");
             } else if (paragraph) {
                 paragraph.textContent =
-                    "Mentors and volunteers offer homework support, encouragement, activity guidance, and a reliable presence for students.";
-                image?.setAttribute("aria-label", "Heads Up mentor and volunteer illustration");
+                    "Homework helpers and tutors work alongside students on assignments and skills while encouraging confidence and independence.";
+                image?.setAttribute("aria-label", "Heads Up homework helper and tutor illustration");
             }
         });
 
@@ -10524,9 +10785,9 @@ initializeAccessReviewFromEmail();
                     <ul>
                         <li>Submit an interest inquiry</li>
                         <li>Complete the program review and required screening</li>
-                        <li>Attend orientation</li>
                         <li>Follow privacy, conduct, supervision, and communication expectations</li>
                         <li>Use approved channels for schedules and protected information</li>
+                        <li>Begin volunteering with program guidance</li>
                     </ul>
                 `,
                 actions: [
