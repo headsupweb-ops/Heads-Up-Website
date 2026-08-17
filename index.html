@@ -19,6 +19,19 @@ Only permission-approved program images still need to be added.
 =====================================================================
 -->
 
+<!--
+=====================================================================
+2026-08-17 CORE LAB CONTENT + CUSTOM DOMAIN UPDATE
+=====================================================================
+This focused update preserves the existing layout, routing, portal,
+Supabase, email-review, privacy, and responsive behavior while:
+1. Routing Submit a story to the working Contact form.
+2. Showing the three approved program panels and Homework Club day flow.
+3. Updating volunteer onboarding, team roles, and one approved alum story.
+4. Moving public, authentication, and sharing URLs to headsupgl.org.
+=====================================================================
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -58,7 +71,7 @@ Only permission-approved program images still need to be added.
     <meta name="robots" content="index, follow">
     <link
         rel="canonical"
-        href="https://headsupweb-ops.github.io/Heads-Up-Website/"
+        href="https://headsupgl.org/"
     >
 
     <meta
@@ -72,11 +85,11 @@ Only permission-approved program images still need to be added.
     <meta property="og:type" content="website">
     <meta
         property="og:url"
-        content="https://headsupweb-ops.github.io/Heads-Up-Website/"
+        content="https://headsupgl.org/"
     >
     <meta
         property="og:image"
-        content="https://headsupweb-ops.github.io/Heads-Up-Website/HeadsUp%20Logo%20cropped%20(1).png"
+        content="https://headsupgl.org/HeadsUp%20Logo%20cropped%20(1).png"
     >
 
     <title>Heads Up | Community Afterschool Program</title>
@@ -92,7 +105,7 @@ Only permission-approved program images still need to be added.
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="style.css?v=20260814-hero-logo-right">
+    <link rel="stylesheet" href="style.css?v=20260817-custom-domain-content">
     <!--
         The public-ready stylesheet has been merged into style.css.
         This historical reference is intentionally disabled so the same
@@ -1380,7 +1393,7 @@ Only permission-approved program images still need to be added.
 
                             <svg aria-hidden="true">
 
-                                <use href="#icon-microscope"></use>
+                                <use href="#icon-people"></use>
 
                             </svg>
 
@@ -1926,6 +1939,10 @@ Only permission-approved program images still need to be added.
                 </div>
 
 
+                <!--
+                    2026-08-17 PROGRAM UPDATE:
+                    Keep exactly the three requested program panels.
+                -->
                 <div class="program-grid">
 
                     <article class="program-card reveal">
@@ -1992,15 +2009,15 @@ Only permission-approved program images still need to be added.
 
 
                         <h3>
-                            STEM Exploration
+                            Team Mentor Program
                         </h3>
 
 
                         <p>
 
-                            Hands-on science, technology, engineering,
-                            and math experiences encouraging curiosity,
-                            creativity, teamwork, and active learning.
+                            Volunteers and mentors build dependable relationships,
+                            guide group activities, and share presentations that
+                            introduce students to new skills and interests.
 
                         </p>
 
@@ -2008,10 +2025,10 @@ Only permission-approved program images still need to be added.
                         <button
                             type="button"
                             class="card-action"
-                            data-modal-content="stem"
+                            data-modal-content="mentor"
                         >
 
-                            Explore STEM activities
+                            Explore the Team Mentor Program
 
                         </button>
 
@@ -2024,7 +2041,7 @@ Only permission-approved program images still need to be added.
 
                             <svg aria-hidden="true">
 
-                                <use href="#icon-tree"></use>
+                                <use href="#icon-user-plus"></use>
 
                             </svg>
 
@@ -2037,16 +2054,15 @@ Only permission-approved program images still need to be added.
 
 
                         <h3>
-                            Community Engagement
+                            Tutoring
                         </h3>
 
 
                         <p>
 
-                            Outdoor exploration, shared meals,
-                            family gatherings, and activities focused
-                            on collaboration, leadership, and positive
-                            relationships.
+                            Individual and small-group academic support helps
+                            students work through assignments, strengthen skills,
+                            and grow into confident, independent learners.
 
                         </p>
 
@@ -2054,65 +2070,23 @@ Only permission-approved program images still need to be added.
                         <button
                             type="button"
                             class="card-action"
-                            data-modal-content="community"
+                            data-modal-content="tutoring"
                         >
 
-                            Explore community activities
+                            Explore tutoring
 
                         </button>
 
                     </article>
 
-
-                    <article class="program-card reveal">
-
-                        <div class="program-card__icon">
-
-                            <svg aria-hidden="true">
-
-                                <use href="#icon-palette"></use>
-
-                            </svg>
-
-                        </div>
-
-
-                        <span class="program-card__number">
-                            04
-                        </span>
-
-
-                        <h3>
-                            Creative Activities
-                        </h3>
-
-
-                        <p>
-
-                            Interactive projects that encourage imagination,
-                            communication, personal expression, and
-                            collaborative learning.
-
-                        </p>
-
-
-                        <button
-                            type="button"
-                            class="card-action"
-                            data-modal-content="creative"
-                        >
-
-                            Explore creative activities
-
-                        </button>
-
-                    </article>
 
                 </div>
 
 
                 <!-- =================================================
-                     A DAY AT HEADS UP
+                     A DAY AT THE HOMEWORK CLUB
+                     2026-08-17: Four child-experience steps replace the
+                     previous five-step general program timeline.
                 ================================================== -->
 
                 <div class="day-at-heads-up reveal">
@@ -2120,19 +2094,19 @@ Only permission-approved program images still need to be added.
                     <div class="day-at-heads-up__intro">
 
                         <p class="section-tag">
-                            A day at Heads Up
+                            A day at the Homework Club
                         </p>
 
 
                         <h3>
-                            A simple view of the student experience
+                            A simple view of the Homework Club experience
                         </h3>
 
 
                         <p>
 
-                            This visual sequence helps families quickly
-                            understand what a typical program day may include.
+                            Children connect, receive skill support, learn with
+                            volunteers and peers, and take part in shared activities.
 
                         </p>
 
@@ -2146,7 +2120,7 @@ Only permission-approved program images still need to be added.
                             <span>1</span>
 
                             <strong>
-                                Arrive & connect
+                                Connection
                             </strong>
 
                             <small>
@@ -2161,11 +2135,11 @@ Only permission-approved program images still need to be added.
                             <span>2</span>
 
                             <strong>
-                                Homework support
+                                Skill Support
                             </strong>
 
                             <small>
-                                Guidance from mentors and peers
+                                Guidance with Volunteers and Peers
                             </small>
 
                         </li>
@@ -2196,21 +2170,6 @@ Only permission-approved program images still need to be added.
 
                             <small>
                                 Conversation, laughter, and belonging
-                            </small>
-
-                        </li>
-
-
-                        <li>
-
-                            <span>5</span>
-
-                            <strong>
-                                Reflect & head home
-                            </strong>
-
-                            <small>
-                                Share what was learned and enjoyed
                             </small>
 
                         </li>
@@ -2871,7 +2830,7 @@ Only permission-approved program images still need to be added.
 
                     <p>
                         
-                        Together, our volunteers and mentors help build
+                        Together, our volunteers help build
                         a welcoming, dependable space where everyone feels safe.
                         We all share the same commitment to keeping our community secure,
                         respecting privacy, communicating openly, and showing up consistently
@@ -2948,12 +2907,16 @@ Only permission-approved program images still need to be added.
                                 Onboarding process
                             </p>
 
+                            <!--
+                                2026-08-17 VOLUNTEER UPDATE:
+                                Orientation is removed; beginning service is step 5.
+                            -->
                             <ol>
                                 <li>Submit an interest message.</li>
                                 <li>Speak with an approved program contact.</li>
                                 <li>Complete required forms and screening.</li>
-                                <li>Attend orientation.</li>
                                 <li>Receive role-specific portal access when appropriate.</li>
+                                <li>Begin volunteering with program guidance.</li>
                             </ol>
 
                         </article>
@@ -3867,6 +3830,7 @@ Only permission-approved program images still need to be added.
                     </article>
 
 
+                    <!-- 2026-08-17 STORY UPDATE: approved alum quotation. -->
                     <article class="story-card reveal">
 
                         <div class="story-card__quote-mark">
@@ -3876,15 +3840,13 @@ Only permission-approved program images still need to be added.
 
                         <blockquote>
 
-                            It is fun, everybody is nice, and it is
-                            a great place to de-stress and have a
-                            good time.
+                            Heads up was easily accessible and offered help if I needed it.
 
                         </blockquote>
 
 
                         <footer>
-                            Student check-in
+                            Raven, Heads Up Alum, Jeff HS 2024
                         </footer>
 
                     </article>
@@ -3911,15 +3873,20 @@ Only permission-approved program images still need to be added.
                     </div>
 
 
-                    <button
-                        type="button"
+                    <!--
+                        2026-08-17 BUTTON FIX:
+                        The href lets the page router reveal Contact before the
+                        shared prefill handler fills in the story subject.
+                    -->
+                    <a
                         class="button button--primary"
+                        href="#contact"
                         data-prefill-subject="Heads Up community story"
                     >
 
                         Submit a story
 
-                    </button>
+                    </a>
 
                 </div>
 
@@ -4301,9 +4268,8 @@ Only permission-approved program images still need to be added.
 
                     <p>
 
-                        Survey participants asked to see program
-                        leaders, mentors, volunteers, and researchers—
-                        not only names, but their roles and experiences.
+                        Meet the program leadership, mentors, and homework
+                        helpers and tutors who support students each week.
 
                     </p>
 
@@ -4312,6 +4278,11 @@ Only permission-approved program images still need to be added.
 
                 <div class="team-grid">
 
+                    <!--
+                        2026-08-17 TEAM UPDATE:
+                        The three requested role groups replace the prior set.
+                        Existing photo class hooks stay in place for styling.
+                    -->
                     <article class="team-card reveal">
 
                         <div
@@ -4362,27 +4333,27 @@ Only permission-approved program images still need to be added.
                         <div
                             class="team-photo team-photo--research"
                             role="img"
-                            aria-label="Heads Up community research team"
+                            aria-label="Heads Up mentors"
                         ></div>
 
 
                         <div class="team-card__body">
 
                             <span>
-                                Research team
+                                Mentors
                             </span>
 
 
                             <h3>
-                                Community-centered research
+                                Relationships, guidance, and encouragement
                             </h3>
 
 
                             <p>
 
-                                The research team listens to community
-                                feedback and helps translate it into
-                                thoughtful program and website improvements.
+                                Mentors listen, encourage curiosity, share
+                                experience, and help students feel supported
+                                as they learn and grow.
 
                             </p>
 
@@ -4390,10 +4361,10 @@ Only permission-approved program images still need to be added.
                             <button
                                 type="button"
                                 class="card-action"
-                                data-team="research"
+                                data-team="mentors"
                             >
 
-                                Meet the research team
+                                Meet the mentors
 
                             </button>
 
@@ -4407,27 +4378,27 @@ Only permission-approved program images still need to be added.
                         <div
                             class="team-photo team-photo--volunteers"
                             role="img"
-                            aria-label="Heads Up mentors and volunteers"
+                            aria-label="Heads Up homework helpers and tutors"
                         ></div>
 
 
                         <div class="team-card__body">
 
                             <span>
-                                Mentors & volunteers
+                                Homework Helpers & Tutors
                             </span>
 
 
                             <h3>
-                                Guidance, encouragement, and care
+                                Skill-building and academic confidence
                             </h3>
 
 
                             <p>
 
-                                Mentors and volunteers support learning,
-                                share practical experience, encourage curiosity,
-                                and help every student feel that they belong.
+                                Homework helpers and tutors work alongside
+                                students on assignments and skills while
+                                encouraging confidence and independence.
 
                             </p>
 
@@ -4435,10 +4406,10 @@ Only permission-approved program images still need to be added.
                             <button
                                 type="button"
                                 class="card-action"
-                                data-team="volunteers"
+                                data-team="tutors"
                             >
 
-                                Meet mentors & volunteers
+                                Meet homework helpers & tutors
 
                             </button>
 
@@ -5684,7 +5655,7 @@ Only permission-approved program images still need to be added.
     ========================================================== -->
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="script.js?v=20260802"></script>
+    <script src="script.js?v=20260817-custom-domain-content"></script>
     <!--
         The public-ready JavaScript has been merged into script.js.
         This historical reference is intentionally disabled to prevent
