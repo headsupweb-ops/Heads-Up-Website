@@ -12,8 +12,12 @@
 //
 // Required/Recommended secrets:
 //   RESEND_API_KEY
-//   FROM_EMAIL=Heads Up Website <website@YOUR-VERIFIED-DOMAIN.org>
-//   ALLOWED_ORIGINS=http://127.0.0.1:5500,https://YOUR-SITE.example
+//   FROM_EMAIL=Heads Up Website <website@headsupgl.org>
+//   ALLOWED_ORIGINS=https://headsupgl.org,https://www.headsupgl.org
+//
+// 2026-08-17 CUSTOM DOMAIN UPDATE:
+// Verify headsupgl.org in Resend, set the Supabase secrets above, and
+// redeploy this function. Secrets remain server-side.
 //
 // Supabase provides SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.
 // ============================================================
@@ -25,7 +29,7 @@ const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") ?? "";
 const FROM_EMAIL =
   Deno.env.get("FROM_EMAIL") ??
-  "Heads Up Website <onboarding@resend.dev>";
+  "Heads Up Website <website@headsupgl.org>";
 
 const GMAIL_DECISION_WEBHOOK_URL =
   Deno.env.get("GMAIL_DECISION_WEBHOOK_URL") ?? "";
@@ -33,7 +37,10 @@ const GMAIL_DECISION_WEBHOOK_URL =
 const GMAIL_DECISION_WEBHOOK_SECRET =
   Deno.env.get("GMAIL_DECISION_WEBHOOK_SECRET") ?? "";
 
-const allowedOrigins = (Deno.env.get("ALLOWED_ORIGINS") ?? "")
+const allowedOrigins = (
+  Deno.env.get("ALLOWED_ORIGINS") ??
+  "https://headsupgl.org,https://www.headsupgl.org"
+)
   .split(",")
   .map((value) => value.trim().replace(/\/$/, ""))
   .filter(Boolean);
