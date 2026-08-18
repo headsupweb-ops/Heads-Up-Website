@@ -25642,3 +25642,166 @@ L14596: closes the current CSS declaration block.
     }
 
 }
+
+/* =====================================================================
+   2026-08-18 VOLUNTEER INSIGHT + HERO PRESENTATION UPDATE
+   ---------------------------------------------------------------------
+   Additive scope only:
+   - Keeps every existing program-panel heading and interaction.
+   - Keeps the volunteer learning-practice styling.
+   - Removes the desktop hero logo's old invisible layout spacer so the
+     introduction begins higher and the right-side visual aligns naturally.
+   - Uses five widely spaced bubbles with uneven, low-opacity ripple cycles.
+   ===================================================================== */
+
+.hero-ripple-field {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-ripple {
+    position: absolute;
+    display: block;
+    width: var(--ripple-size, 3rem);
+    aspect-ratio: 1;
+    border: 1px solid rgba(77, 148, 166, 0.19);
+    border-radius: 50%;
+    background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.62), rgba(237, 180, 41, 0.075) 38%, rgba(77, 148, 166, 0.055) 64%, transparent 72%);
+    box-shadow: inset 0 0 0 0.35rem rgba(255, 255, 255, 0.11), 0 0 1.8rem rgba(0, 74, 173, 0.055);
+    opacity: 0;
+    will-change: opacity, transform;
+    animation: headsUpHeroRipple var(--ripple-duration, 18s) cubic-bezier(0.37, 0, 0.24, 1) infinite;
+    animation-delay: var(--ripple-delay, 0s);
+}
+
+.hero-ripple::after {
+    content: "";
+    position: absolute;
+    inset: -0.6rem;
+    border: 1px solid rgba(77, 148, 166, 0.12);
+    border-radius: inherit;
+    opacity: 0;
+    animation: headsUpHeroRippleEcho var(--ripple-duration, 18s) cubic-bezier(0.37, 0, 0.24, 1) infinite;
+    animation-delay: var(--ripple-delay, 0s);
+}
+
+/* Uneven durations and offsets keep the five appearances organic without
+   clustering the hero or distracting from the introduction. */
+.hero-ripple--one { --ripple-size: clamp(3.8rem, 6vw, 6.7rem); --ripple-duration: 17.3s; --ripple-delay: -2.4s; --ripple-x: 0.45rem; --ripple-y: -0.55rem; --ripple-x-end: 0.7rem; --ripple-y-end: -0.85rem; top: 10%; left: 5%; }
+.hero-ripple--two { --ripple-size: clamp(1.9rem, 3.2vw, 3.5rem); --ripple-duration: 21.1s; --ripple-delay: -13.7s; --ripple-x: -0.4rem; --ripple-y: -0.7rem; --ripple-x-end: -0.62rem; --ripple-y-end: -1.05rem; top: 24%; left: 38%; }
+.hero-ripple--three { --ripple-size: clamp(2.5rem, 4.2vw, 4.7rem); --ripple-duration: 18.7s; --ripple-delay: -7.9s; --ripple-x: 0.55rem; --ripple-y: -0.35rem; --ripple-x-end: 0.85rem; --ripple-y-end: -0.55rem; top: 50%; left: 55%; }
+.hero-ripple--four { --ripple-size: clamp(4.2rem, 6.8vw, 7.6rem); --ripple-duration: 23.9s; --ripple-delay: -18.1s; --ripple-x: 0.35rem; --ripple-y: -0.8rem; --ripple-x-end: 0.55rem; --ripple-y-end: -1.2rem; bottom: 7%; left: 8%; }
+.hero-ripple--five { --ripple-size: clamp(2.4rem, 4.4vw, 4.9rem); --ripple-duration: 19.6s; --ripple-delay: -10.6s; --ripple-x: -0.5rem; --ripple-y: -0.45rem; --ripple-x-end: -0.78rem; --ripple-y-end: -0.7rem; top: 17%; right: 5%; }
+
+@keyframes headsUpHeroRipple {
+    0%, 12%, 100% {
+        opacity: 0;
+        transform: translate3d(0, 0.35rem, 0) scale(0.84);
+        box-shadow: inset 0 0 0 0.35rem rgba(255, 255, 255, 0.08), 0 0 0 0 rgba(77, 148, 166, 0.08);
+    }
+    25% {
+        opacity: 0.24;
+    }
+    48% {
+        opacity: 0.38;
+        transform: translate3d(var(--ripple-x, 0.35rem), var(--ripple-y, -0.55rem), 0) scale(1.02);
+        box-shadow: inset 0 0 0 0.2rem rgba(255, 255, 255, 0.14), 0 0 0 1rem rgba(77, 148, 166, 0);
+    }
+    72% {
+        opacity: 0.12;
+        transform: translate3d(var(--ripple-x-end, 0.55rem), var(--ripple-y-end, -0.85rem), 0) scale(1.12);
+    }
+    84% {
+        opacity: 0;
+        transform: translate3d(var(--ripple-x-end, 0.55rem), var(--ripple-y-end, -0.85rem), 0) scale(1.17);
+    }
+}
+
+@keyframes headsUpHeroRippleEcho {
+    0%, 28%, 100% {
+        opacity: 0;
+        transform: scale(0.88);
+    }
+    50% {
+        opacity: 0.18;
+        transform: scale(1.04);
+    }
+    76% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+/* The previous desktop logo was visually moved right but still occupied
+   space above the left introduction. Absolute placement removes only that
+   empty spacer while keeping the same official logo and right-side position. */
+@media (min-width: 981px) {
+    .hero-left.reveal,
+    .hero-left.reveal.is-visible {
+        transform: none;
+    }
+
+    .hero-container {
+        align-items: center;
+    }
+
+    .hero-brand-lockup {
+        position: absolute;
+        top: 0;
+        right: clamp(3.5rem, 7vw, 8.5rem);
+        left: auto;
+        z-index: 6;
+        margin: 0;
+        pointer-events: none;
+    }
+
+    .hero-right {
+        padding-top: clamp(10.5rem, 12vw, 12.5rem);
+    }
+}
+
+.volunteer-practice-note {
+    margin-top: 1.4rem;
+    padding: 1.25rem;
+    border: 1px solid rgba(77, 148, 166, 0.19);
+    border-left: 0.3rem solid var(--brand-teal, #4d94a6);
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(239, 248, 253, 0.94), rgba(238, 248, 232, 0.86));
+}
+
+.volunteer-practice-note h4 {
+    margin-top: 0;
+    color: var(--public-ready-navy, #062d67);
+}
+
+.volunteer-practice-note ul {
+    display: grid;
+    gap: 0.62rem;
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.volunteer-practice-note li::marker {
+    color: var(--brand-green, #4c872b);
+}
+
+@media (max-width: 620px) {
+    .hero-ripple--two,
+    .hero-ripple--four {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-ripple {
+        animation: none !important;
+        opacity: 0.18;
+        transform: none !important;
+    }
+    .hero-ripple::after {
+        animation: none !important;
+    }
+}
