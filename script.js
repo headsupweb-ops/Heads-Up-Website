@@ -11648,6 +11648,144 @@ initializeAccessReviewFromEmail();
     }
 })();
 
+
+/* =====================================================================
+   2026-08-18 SITE-WIDE AMBIENT BUBBLES
+   ---------------------------------------------------------------------
+   A maximum of three short-lived decorative bubbles appear at changing
+   viewport positions. Uneven timing, distinct color variations, and two soft
+   ripple rings keep the effect organic without blocking links or text.
+   ===================================================================== */
+
+(() => {
+    const initializeAmbientBubbles = () => {
+        const layer = document.getElementById("ambientBubbleLayer");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        if (!layer || reducedMotion.matches) {
+            return;
+        }
+
+        const palette = [
+            {
+                fill: "rgba(255, 183, 3, 0.18)",
+                ring: "rgba(197, 123, 0, 0.72)",
+                glow: "rgba(255, 183, 3, 0.22)"
+            },
+            {
+                fill: "rgba(55, 112, 232, 0.16)",
+                ring: "rgba(43, 88, 190, 0.68)",
+                glow: "rgba(55, 112, 232, 0.20)"
+            },
+            {
+                fill: "rgba(42, 166, 112, 0.16)",
+                ring: "rgba(23, 124, 78, 0.68)",
+                glow: "rgba(42, 166, 112, 0.20)"
+            },
+            {
+                fill: "rgba(239, 106, 92, 0.16)",
+                ring: "rgba(199, 64, 56, 0.66)",
+                glow: "rgba(239, 106, 92, 0.20)"
+            },
+            {
+                fill: "rgba(145, 104, 210, 0.16)",
+                ring: "rgba(105, 73, 171, 0.66)",
+                glow: "rgba(145, 104, 210, 0.20)"
+            }
+        ];
+
+        const randomBetween = (minimum, maximum) => (
+            minimum + Math.random() * (maximum - minimum)
+        );
+
+        const maximumActiveBubbles = window.matchMedia("(max-width: 720px)").matches
+            ? 2
+            : 3;
+
+        let activeBubbleCount = 0;
+        let spawnTimer = null;
+
+        const scheduleNextBubble = (minimumDelay = 1500, maximumDelay = 3900) => {
+            window.clearTimeout(spawnTimer);
+
+            if (document.hidden) {
+                return;
+            }
+
+            spawnTimer = window.setTimeout(
+                createBubble,
+                randomBetween(minimumDelay, maximumDelay)
+            );
+        };
+
+        const createBubble = () => {
+            if (document.hidden || activeBubbleCount >= maximumActiveBubbles) {
+                scheduleNextBubble(900, 1900);
+                return;
+            }
+
+            const bubble = document.createElement("span");
+            const color = palette[Math.floor(Math.random() * palette.length)];
+            const size = randomBetween(
+                window.innerWidth <= 720 ? 22 : 28,
+                window.innerWidth <= 720 ? 58 : 78
+            );
+            const driftX = randomBetween(-12, 12);
+            const driftY = randomBetween(-18, -8);
+            const duration = randomBetween(5.8, 8.6);
+
+            bubble.className = "ambient-site-bubble";
+            bubble.style.left = `${randomBetween(3, 94)}vw`;
+            bubble.style.top = `${randomBetween(12, 91)}vh`;
+            bubble.style.setProperty("--bubble-size", `${size}px`);
+            bubble.style.setProperty("--bubble-duration", `${duration}s`);
+            bubble.style.setProperty("--bubble-fill", color.fill);
+            bubble.style.setProperty("--bubble-ring", color.ring);
+            bubble.style.setProperty("--bubble-glow", color.glow);
+            bubble.style.setProperty("--bubble-drift-x", `${driftX}px`);
+            bubble.style.setProperty("--bubble-drift-y", `${driftY}px`);
+            bubble.style.setProperty("--bubble-drift-x-end", `${driftX * 1.55}px`);
+            bubble.style.setProperty("--bubble-drift-y-end", `${driftY * 1.55}px`);
+
+            activeBubbleCount += 1;
+            layer.append(bubble);
+
+            const removeCompletedBubble = (event) => {
+                if (event.animationName !== "headsUpSiteBubbleLife" || event.pseudoElement) {
+                    return;
+                }
+
+                bubble.removeEventListener("animationend", removeCompletedBubble);
+                bubble.remove();
+                activeBubbleCount = Math.max(0, activeBubbleCount - 1);
+            };
+
+            bubble.addEventListener("animationend", removeCompletedBubble);
+
+            scheduleNextBubble();
+        };
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                window.clearTimeout(spawnTimer);
+                return;
+            }
+
+            scheduleNextBubble(250, 800);
+        });
+
+        createBubble();
+        window.setTimeout(createBubble, 850);
+        window.setTimeout(createBubble, 2100);
+    };
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeAmbientBubbles, { once: true });
+    } else {
+        initializeAmbientBubbles();
+    }
+})();
+
 /*
 =====================================================================
 LINE BY LINE MAINTENANCE INDEX
