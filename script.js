@@ -438,6 +438,8 @@ const weeklyUpdates = [
     },
 
 
+    /* 2026-08-18: Keep this public update general until additional
+       volunteer preparation information is approved for publication. */
     {
 
         id:
@@ -450,7 +452,7 @@ const weeklyUpdates = [
             "Volunteer",
 
         title:
-            "Volunteer orientation information",
+            "Volunteer information",
 
         dateLabel:
             "June 10, 2026",
@@ -459,19 +461,18 @@ const weeklyUpdates = [
             "Volunteers and mentors",
 
         summary:
-            "Incoming volunteers can review expectations, onboarding steps, and available participation opportunities.",
+            "Prospective volunteers can review student-centered support practices and available participation opportunities.",
 
         details:
             `
                 <p>
-                    Volunteer orientation covers required forms,
-                    training expectations, communication practices,
-                    scheduling, and the appropriate point of contact.
+                    Volunteers support tutoring, activities, community events,
+                    and positive student relationships with program guidance.
                 </p>
 
                 <p>
-                    Visitors can also open the Volunteer & Mentor
-                    resource card for a complete onboarding overview.
+                    Use the volunteer inquiry or contact form to ask about
+                    current opportunities and next steps.
                 </p>
             `
 
@@ -837,13 +838,15 @@ const upcomingEvents = [
     },
 
 
+    /* 2026-08-18: The stable event ID remains unchanged so existing links
+       keep working; only the public-facing wording is kept general. */
     {
 
         id:
             "volunteer-orientation-event",
 
         title:
-            "Volunteer & Mentor Orientation",
+            "Volunteer Information Check-In",
 
         date:
             "2099-01-01",
@@ -876,7 +879,7 @@ const upcomingEvents = [
             "Location shared after approval",
 
         summary:
-            "Orientation information is available for approved volunteers and mentors. Use the contact form or portal pathway for next steps.",
+            "Volunteer information is available through the contact form or approved portal pathway.",
 
         details:
             `
@@ -888,7 +891,7 @@ const upcomingEvents = [
                 </p>
 
                 <h3>
-                    Orientation topics
+                    Preparation topics
                 </h3>
 
                 <ul>
@@ -1111,37 +1114,28 @@ const contentLibrary = {
         body:
             `
                 <p>
-                    Homework Club offers structured academic support
-                    in a community environment where students can ask
-                    questions, work alongside peers, and receive
-                    guidance from mentors.
+                    Homework Club is a school-year afterschool program
+                    in the neighborhood clubhouse where children connect,
+                    enjoy informal learning activities, complete assignments,
+                    and receive guidance from volunteers and peers.
                 </p>
 
                 <h3>
-                    Homework Club support includes
+                    What a Homework Club day can include
                 </h3>
 
                 <ul>
-                    <li>
-                        Current meeting days and hours
-                    </li>
-
-                    <li>
-                        Types of homework and tutoring support
-                    </li>
-
-                    <li>
-                        Mentor roles and areas of experience
-                    </li>
-
-                    <li>
-                        Approved student reflections or project examples
-                    </li>
-
-                    <li>
-                        How families can ask questions
-                    </li>
+                    <li>Connection time and a short brain break after arrival</li>
+                    <li>Group games, gardening, or another shared activity</li>
+                    <li>Free voluntary reading and conversation about books</li>
+                    <li>Homework, independent reading, or a guided group project</li>
+                    <li>Snacks, encouragement, and points toward special field experiences</li>
                 </ul>
+
+                <p>
+                    Current days, times, and family-specific details remain
+                    available through approved program communication.
+                </p>
             `,
 
         actions: [
@@ -1190,9 +1184,10 @@ const contentLibrary = {
         body:
             `
                 <p>
-                    The Team Mentor Program connects students with dependable
-                    volunteers and mentors who listen, encourage participation,
-                    and help lead group activities and presentations.
+                    The Team Mentor Program creates year-round connections
+                    between local young people and dependable volunteers.
+                    Meetings and activities are coordinated around mentor and
+                    student availability.
                 </p>
 
                 <h3>
@@ -1201,8 +1196,8 @@ const contentLibrary = {
 
                 <ul>
                     <li>Consistent relationships with caring adults</li>
-                    <li>Small-group activities and shared presentations</li>
-                    <li>Encouragement, questions, and practical guidance</li>
+                    <li>Conversation, goal-setting, and shared presentations</li>
+                    <li>Encouragement that normalizes ambition and supports autonomy</li>
                     <li>Opportunities to explore new interests and skills</li>
                     <li>Positive teamwork with volunteers and peers</li>
                 </ul>
@@ -1242,9 +1237,10 @@ const contentLibrary = {
         body:
             `
                 <p>
-                    Tutoring provides individual and small-group academic
-                    support so students can work through assignments, strengthen
-                    skills, and build confidence as independent learners.
+                    Tutoring pairs a volunteer with one or two students for
+                    recurring after-school support, either virtually or at an
+                    approved program location. No subject-specific expertise is
+                    required to encourage strong learning habits.
                 </p>
 
                 <h3>
@@ -1252,11 +1248,11 @@ const contentLibrary = {
                 </h3>
 
                 <ul>
-                    <li>Focused help with current assignments</li>
-                    <li>Practice with academic and study skills</li>
-                    <li>Questions explained with patience and encouragement</li>
-                    <li>Support adapted to the student's learning needs</li>
-                    <li>Confidence-building through steady progress</li>
+                    <li>Focused help with math, reading, language arts, and current assignments</li>
+                    <li>Ask what the student already knows before jumping in</li>
+                    <li>Break a challenge into smaller, understandable steps</li>
+                    <li>Model a different example, then let the student try</li>
+                    <li>Encourage effort, questions, and steady progress</li>
                 </ul>
             `,
 
@@ -1931,13 +1927,13 @@ const resourceLibrary = {
         body:
             `
                 <p>
-                    Volunteers and mentors contribute to academic
-                    support, hands-on activities, relationship-building,
-                    and community engagement.
+                    Volunteers contribute to academic support, hands-on
+                    activities, relationship-building, and community engagement.
+                    Subject-specific expertise is not required.
                 </p>
 
                 <h3>
-                    Volunteer onboarding
+                    Ways volunteers support students
                 </h3>
 
                 <ul>
@@ -1946,25 +1942,19 @@ const resourceLibrary = {
                     </li>
 
                     <li>
-                        Orientation and training dates
-                    </li>
-
-                    <li>
-                        Program schedule and attendance expectations
-                    </li>
-
-                    <li>
-                        Student-centered communication guidelines
+                        Student-centered and culturally responsive support practices
                     </li>
 
                     <li>
                         Privacy, media, and safety expectations
                     </li>
 
-                    <li>
-                        Who to contact with questions
-                    </li>
                 </ul>
+
+                <p>
+                    Questions may be sent to
+                    <a href="mailto:headsupglafayette@gmail.com">headsupglafayette@gmail.com</a>.
+                </p>
             `,
 
         actions: [
@@ -10720,10 +10710,10 @@ initializeAccessReviewFromEmail();
                     title: "Volunteer and mentor opportunities",
                     dateLabel: "Applications welcomed",
                     audience: "Prospective volunteers",
-                    summary: "Support tutoring, activities, setup, community events, and positive student relationships through a clearly guided volunteer role.",
+                    summary: "Support tutoring, activities, community events, and positive student relationships through a clearly guided role that does not require subject-specific expertise.",
                     details: `
-                        <p>Volunteers complete the program's review, orientation, privacy expectations, and any required screening before beginning.</p>
-                        <p>Visit Volunteer With Us to review responsibilities and submit an inquiry.</p>
+                        <p>Volunteers complete the program review, screening, and privacy expectations before beginning.</p>
+                        <p>Visit Volunteer With Us to review responsibilities, student-support practices, and the five-step onboarding path.</p>
                     `
                 },
                 {
@@ -10776,18 +10766,20 @@ initializeAccessReviewFromEmail();
                 ]
             };
 
+            /* 2026-08-18: Preserve the existing volunteer resource modal and
+               student-support guidance while keeping private preparation
+               details off the public website for now. */
             resourceLibrary.volunteers = {
                 eyebrow: "Volunteers & mentors",
                 title: "Support students with clarity and care",
                 body: `
-                    <p>Volunteers help with tutoring, activities, setup, family events, and encouraging student relationships under program guidance.</p>
-                    <h3>Before beginning</h3>
+                    <p>Volunteers help with tutoring, activities, community events, and encouraging student relationships under program guidance. No subject-specific expertise is required.</p>
+                    <h3>Student-centered support</h3>
                     <ul>
-                        <li>Submit an interest inquiry</li>
-                        <li>Complete the program review and required screening</li>
-                        <li>Follow privacy, conduct, supervision, and communication expectations</li>
-                        <li>Use approved channels for schedules and protected information</li>
-                        <li>Begin volunteering with program guidance</li>
+                        <li>Get to know the student and ask how they would like help</li>
+                        <li>Find out what they already know and how the skill was introduced</li>
+                        <li>Break challenges into smaller steps and guide with questions</li>
+                        <li>Encourage effort and persistence rather than labeling ability</li>
                     </ul>
                 `,
                 actions: [
