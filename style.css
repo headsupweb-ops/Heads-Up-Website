@@ -25651,89 +25651,8 @@ L14596: closes the current CSS declaration block.
    - Keeps the volunteer learning-practice styling.
    - Removes the desktop hero logo's old invisible layout spacer so the
      introduction begins higher and the right-side visual aligns naturally.
-   - Uses five widely spaced bubbles with uneven, low-opacity ripple cycles.
+   - Uses a few site-wide bubbles with uneven, low-opacity ripple cycles.
    ===================================================================== */
-
-.hero-ripple-field {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.hero-ripple {
-    position: absolute;
-    display: block;
-    width: var(--ripple-size, 3rem);
-    aspect-ratio: 1;
-    border: 1px solid rgba(77, 148, 166, 0.19);
-    border-radius: 50%;
-    background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.62), rgba(237, 180, 41, 0.075) 38%, rgba(77, 148, 166, 0.055) 64%, transparent 72%);
-    box-shadow: inset 0 0 0 0.35rem rgba(255, 255, 255, 0.11), 0 0 1.8rem rgba(0, 74, 173, 0.055);
-    opacity: 0;
-    will-change: opacity, transform;
-    animation: headsUpHeroRipple var(--ripple-duration, 18s) cubic-bezier(0.37, 0, 0.24, 1) infinite;
-    animation-delay: var(--ripple-delay, 0s);
-}
-
-.hero-ripple::after {
-    content: "";
-    position: absolute;
-    inset: -0.6rem;
-    border: 1px solid rgba(77, 148, 166, 0.12);
-    border-radius: inherit;
-    opacity: 0;
-    animation: headsUpHeroRippleEcho var(--ripple-duration, 18s) cubic-bezier(0.37, 0, 0.24, 1) infinite;
-    animation-delay: var(--ripple-delay, 0s);
-}
-
-/* Uneven durations and offsets keep the five appearances organic without
-   clustering the hero or distracting from the introduction. */
-.hero-ripple--one { --ripple-size: clamp(3.8rem, 6vw, 6.7rem); --ripple-duration: 17.3s; --ripple-delay: -2.4s; --ripple-x: 0.45rem; --ripple-y: -0.55rem; --ripple-x-end: 0.7rem; --ripple-y-end: -0.85rem; top: 10%; left: 5%; }
-.hero-ripple--two { --ripple-size: clamp(1.9rem, 3.2vw, 3.5rem); --ripple-duration: 21.1s; --ripple-delay: -13.7s; --ripple-x: -0.4rem; --ripple-y: -0.7rem; --ripple-x-end: -0.62rem; --ripple-y-end: -1.05rem; top: 24%; left: 38%; }
-.hero-ripple--three { --ripple-size: clamp(2.5rem, 4.2vw, 4.7rem); --ripple-duration: 18.7s; --ripple-delay: -7.9s; --ripple-x: 0.55rem; --ripple-y: -0.35rem; --ripple-x-end: 0.85rem; --ripple-y-end: -0.55rem; top: 50%; left: 55%; }
-.hero-ripple--four { --ripple-size: clamp(4.2rem, 6.8vw, 7.6rem); --ripple-duration: 23.9s; --ripple-delay: -18.1s; --ripple-x: 0.35rem; --ripple-y: -0.8rem; --ripple-x-end: 0.55rem; --ripple-y-end: -1.2rem; bottom: 7%; left: 8%; }
-.hero-ripple--five { --ripple-size: clamp(2.4rem, 4.4vw, 4.9rem); --ripple-duration: 19.6s; --ripple-delay: -10.6s; --ripple-x: -0.5rem; --ripple-y: -0.45rem; --ripple-x-end: -0.78rem; --ripple-y-end: -0.7rem; top: 17%; right: 5%; }
-
-@keyframes headsUpHeroRipple {
-    0%, 12%, 100% {
-        opacity: 0;
-        transform: translate3d(0, 0.35rem, 0) scale(0.84);
-        box-shadow: inset 0 0 0 0.35rem rgba(255, 255, 255, 0.08), 0 0 0 0 rgba(77, 148, 166, 0.08);
-    }
-    25% {
-        opacity: 0.24;
-    }
-    48% {
-        opacity: 0.38;
-        transform: translate3d(var(--ripple-x, 0.35rem), var(--ripple-y, -0.55rem), 0) scale(1.02);
-        box-shadow: inset 0 0 0 0.2rem rgba(255, 255, 255, 0.14), 0 0 0 1rem rgba(77, 148, 166, 0);
-    }
-    72% {
-        opacity: 0.12;
-        transform: translate3d(var(--ripple-x-end, 0.55rem), var(--ripple-y-end, -0.85rem), 0) scale(1.12);
-    }
-    84% {
-        opacity: 0;
-        transform: translate3d(var(--ripple-x-end, 0.55rem), var(--ripple-y-end, -0.85rem), 0) scale(1.17);
-    }
-}
-
-@keyframes headsUpHeroRippleEcho {
-    0%, 28%, 100% {
-        opacity: 0;
-        transform: scale(0.88);
-    }
-    50% {
-        opacity: 0.18;
-        transform: scale(1.04);
-    }
-    76% {
-        opacity: 0;
-        transform: scale(1.2);
-    }
-}
 
 /* The previous desktop logo was visually moved right but still occupied
    space above the left introduction. Absolute placement removes only that
@@ -25788,20 +25707,200 @@ L14596: closes the current CSS declaration block.
     color: var(--brand-green, #4c872b);
 }
 
+
+/* =====================================================================
+   2026-08-18 RESPONSIVE HERO INTRO + SITE-WIDE BUBBLE UPDATE
+   ---------------------------------------------------------------------
+   - Brings the introduction and right-side logo near the top of the hero.
+   - Keeps the two-column brand presentation through tablet widths.
+   - Uses a fixed, click-through layer for a few temporary bubbles anywhere
+     in the visible site rather than keeping bubbles inside the hero only.
+   ===================================================================== */
+
+.ambient-bubble-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 900;
+    overflow: hidden;
+    pointer-events: none;
+    contain: strict;
+}
+
+.ambient-site-bubble {
+    position: absolute;
+    display: block;
+    width: var(--bubble-size, 3rem);
+    aspect-ratio: 1;
+    border: 1.35px solid var(--bubble-ring, rgba(77, 148, 166, 0.22));
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 31% 25%, rgba(255, 255, 255, 0.64), transparent 26%),
+        radial-gradient(circle, var(--bubble-fill, rgba(77, 148, 166, 0.09)), transparent 72%);
+    box-shadow:
+        inset 0 0 0 0.3rem rgba(255, 255, 255, 0.11),
+        0 0 1.75rem var(--bubble-glow, rgba(77, 148, 166, 0.08));
+    filter: saturate(1.12) contrast(1.03);
+    opacity: 0;
+    will-change: opacity, transform;
+    animation: headsUpSiteBubbleLife var(--bubble-duration, 7s) cubic-bezier(0.32, 0, 0.2, 1) forwards;
+}
+
+.ambient-site-bubble::before,
+.ambient-site-bubble::after {
+    content: "";
+    position: absolute;
+    border: 1.25px solid var(--bubble-ring, rgba(77, 148, 166, 0.22));
+    border-radius: inherit;
+    opacity: 0;
+}
+
+.ambient-site-bubble::before {
+    inset: -0.48rem;
+    animation: headsUpSiteBubbleRing var(--bubble-duration, 7s) ease-out forwards;
+}
+
+.ambient-site-bubble::after {
+    inset: -0.9rem;
+    animation: headsUpSiteBubbleRing var(--bubble-duration, 7s) 0.42s ease-out forwards;
+}
+
+@keyframes headsUpSiteBubbleLife {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 0.4rem, 0) scale(0.62);
+    }
+    14% {
+        opacity: 0.34;
+    }
+    42% {
+        opacity: 0.62;
+        transform: translate3d(var(--bubble-drift-x, 0.45rem), var(--bubble-drift-y, -0.55rem), 0) scale(1);
+    }
+    72% {
+        opacity: 0.26;
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(var(--bubble-drift-x-end, 0.8rem), var(--bubble-drift-y-end, -1rem), 0) scale(1.17);
+    }
+}
+
+@keyframes headsUpSiteBubbleRing {
+    0%, 18% {
+        opacity: 0;
+        transform: scale(0.76);
+    }
+    42% {
+        opacity: 0.44;
+    }
+    84%, 100% {
+        opacity: 0;
+        transform: scale(1.22);
+    }
+}
+
+@media (min-width: 981px) {
+    .hero-section {
+        min-height: auto;
+        align-items: start;
+        padding-top: clamp(2.2rem, 3.8vw, 4.1rem);
+    }
+
+    .hero-container {
+        align-items: start;
+    }
+
+    .hero-left {
+        align-self: start;
+        padding-top: 0.35rem;
+    }
+
+    .hero-brand-lockup {
+        top: 0;
+        right: clamp(1.5rem, 5vw, 6rem);
+        width: clamp(13.5rem, 18vw, 18.5rem);
+    }
+
+    .hero-right {
+        padding-top: clamp(8.5rem, 10vw, 10.75rem);
+    }
+}
+
+/* Tablet and compact-laptop layout: retain the right-side logo rather than
+   placing it above the introduction and pushing the opening copy downward. */
+@media (min-width: 721px) and (max-width: 980px) {
+    .hero-section {
+        padding-top: clamp(1.7rem, 3.5vw, 2.6rem);
+    }
+
+    .hero-container {
+        grid-template-columns: minmax(0, 1.08fr) minmax(16rem, 0.92fr);
+        align-items: start;
+        gap: clamp(1.25rem, 3vw, 2.4rem);
+    }
+
+    .hero-left {
+        align-self: start;
+        padding-top: 0.25rem;
+        text-align: left;
+    }
+
+    .hero-title,
+    .hero-description {
+        margin-inline: 0;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+
+    .hero-quick-stats {
+        margin-inline: 0;
+    }
+
+    .hero-brand-lockup {
+        position: absolute;
+        top: 0;
+        right: clamp(0.35rem, 2vw, 1.4rem);
+        left: auto;
+        width: clamp(11.25rem, 24vw, 14.75rem);
+        margin: 0;
+        pointer-events: none;
+    }
+
+    .hero-right {
+        width: 100%;
+        padding-top: clamp(7.4rem, 16vw, 8.9rem);
+    }
+
+    .community-puzzle {
+        min-height: clamp(27rem, 55vw, 33rem);
+    }
+}
+
+@media (max-width: 720px) {
+    .hero-section {
+        padding-top: 1.75rem;
+    }
+
+    .hero-container {
+        gap: 2.1rem;
+    }
+
+    .hero-brand-lockup {
+        width: min(13.75rem, 66vw);
+        margin-bottom: 0.7rem;
+    }
+}
+
 @media (max-width: 620px) {
-    .hero-ripple--two,
-    .hero-ripple--four {
-        display: none;
+    .ambient-site-bubble {
+        --bubble-size: min(var(--bubble-size, 2.5rem), 3.5rem);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-ripple {
-        animation: none !important;
-        opacity: 0.18;
-        transform: none !important;
-    }
-    .hero-ripple::after {
-        animation: none !important;
+    .ambient-site-bubble {
+        display: none !important;
     }
 }
