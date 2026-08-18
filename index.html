@@ -105,7 +105,7 @@ Supabase, email-review, privacy, and responsive behavior while:
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="style.css?v=20260817-custom-domain-content">
+    <link rel="stylesheet" href="style.css?v=20260818-distinct-bubbles">
     <!--
         The public-ready stylesheet has been merged into style.css.
         This historical reference is intentionally disabled so the same
@@ -166,6 +166,22 @@ Supabase, email-review, privacy, and responsive behavior while:
         <span class="ambient-grid"></span>
 
     </div>
+
+
+    <!-- =========================================================
+         2026-08-18 SITE-WIDE AMBIENT BUBBLES
+
+         This separate layer sits above section backgrounds so its few
+         short-lived bubbles remain visible across the full website. It
+         never receives pointer input and is decorative for assistive
+         technology.
+    ========================================================== -->
+
+    <div
+        class="ambient-bubble-layer"
+        id="ambientBubbleLayer"
+        aria-hidden="true"
+    ></div>
 
 
     <!-- =========================================================
@@ -1077,21 +1093,6 @@ Supabase, email-review, privacy, and responsive behavior while:
                 class="hero-pattern"
                 aria-hidden="true"
             ></div>
-
-
-            <!-- =================================================
-                 2026-08-17 HERO ALIGNMENT + RIPPLE UPDATE
-                 Decorative bubbles add calm motion without changing
-                 the hero's content, links, or accessibility order.
-            ================================================== -->
-
-            <div class="hero-ripple-field" aria-hidden="true">
-                <span class="hero-ripple hero-ripple--one"></span>
-                <span class="hero-ripple hero-ripple--two"></span>
-                <span class="hero-ripple hero-ripple--three"></span>
-                <span class="hero-ripple hero-ripple--four"></span>
-                <span class="hero-ripple hero-ripple--five"></span>
-            </div>
 
 
             <div class="hero-container">
@@ -5694,7 +5695,7 @@ Supabase, email-review, privacy, and responsive behavior while:
     ========================================================== -->
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="script.js?v=20260817-custom-domain-content"></script>
+    <script src="script.js?v=20260818-distinct-bubbles"></script>
     <!--
         The public-ready JavaScript has been merged into script.js.
         This historical reference is intentionally disabled to prevent
