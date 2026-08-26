@@ -1170,7 +1170,7 @@ const contentLibrary = {
 
     /*
        2026-08-17 PROGRAM MODALS:
-       These keys support the new Team Mentor Program and Tutoring panels.
+       These keys support the new Teen Mentoring Program and Tutoring panels.
        Earlier modal definitions remain below so unrelated code is preserved.
     */
     mentor: {
@@ -1179,15 +1179,15 @@ const contentLibrary = {
             "Program activity",
 
         title:
-            "Team Mentor Program",
+            "Teen Mentoring Program",
 
         body:
             `
                 <p>
-                    The Team Mentor Program creates year-round connections
-                    between local young people and dependable volunteers.
-                    Meetings and activities are coordinated around mentor and
-                    student availability.
+                    The Teen Mentoring Program creates year-round connections
+                    between local 7th-12th graders (mentees) and dependable
+                    adult volunteers (mentors). Meetings and activities are
+                    coordinated around mentor and mentee availability.
                 </p>
 
                 <h3>
@@ -1199,7 +1199,7 @@ const contentLibrary = {
                     <li>Conversation, goal-setting, and shared presentations</li>
                     <li>Encouragement that normalizes ambition and supports autonomy</li>
                     <li>Opportunities to explore new interests and skills</li>
-                    <li>Positive teamwork with volunteers and peers</li>
+                    <li>Positive teamwork with mentors and mentees</li>
                 </ul>
             `,
 
@@ -1219,7 +1219,7 @@ const contentLibrary = {
                     "Ask about mentoring",
 
                 prefill:
-                    "Team Mentor Program question"
+                    "Teen Mentoring Program question"
             }
         ]
 
@@ -1237,10 +1237,10 @@ const contentLibrary = {
         body:
             `
                 <p>
-                    Tutoring pairs a volunteer with one or two students for
-                    recurring after-school support, either virtually or at an
-                    approved program location. No subject-specific expertise is
-                    required to encourage strong learning habits.
+                    Tutoring pairs two adult tutors with one or two children
+                    for weekly support, either virtually or at an approved
+                    program location. No subject-specific expertise is required
+                    to encourage strong learning habits.
                 </p>
 
                 <h3>
